@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Astro } from 'astro';
+let content;
+let html;
+
+try {
+    [content] = await Astro.fetchContent('../content/course-1.md');
+    html = await Astro.markdown(content);
+} catch (error) {
+    console.error('Error fetching markdown content:', error);
+}
+---
+
+<Layout title="Course-1">
+    <main>
+        <h1>Architecture Front End</h1>
+        <h3>Prof : <code>Alexandre Zerah</code></h3>
+        <div innerHTML={html}></div>
+    </main>
+</Layout>
+<style is="scss">
+main {
+    margin: auto;
+    padding: var(--page-padding-top) 20px 0;
+    max-width: 1440px;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    h3 code {
+        font-size: 0.8em;
+        font-weight: bold;
+        background: rgba(var(--accent-light), 12%);
+        color: rgb(var(--accent-light));
+        border-radius: 4px;
+        padding: 0.3em 0.4em;
+    }
+}
+</style>
