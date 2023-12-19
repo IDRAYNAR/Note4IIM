@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+const allCourse = [
+    {
+        title: "Architecture Front End",
+        body: "Alexandre Zerah",
+        href: "/course-1"
+    },
+    {
+        title: "Interfaces frontend",
+        body: "Léonard de Vinci",
+        href: "https://astro.build/integrations/"
+    },
+    {
+        title: "Architecture backend - JS",
+        body: "Pierrick Chevron",
+        href: "https://astro.build/themes/"
+    },
+    {
+        title: "Architecture numérique",
+        body: "Yann Soitino",
+        href: "https://astro.build/chat/"
+    }];
+---
+
+<Layout title="All course">
+    <main>
+        <h1>Note 4 <span class="text-gradient">IIM</span></h1>
+        <ul role="list" class="link-card-grid">
+            {allCourse.map((course) => (
+                    <Card
+                            href={course.href}
+                            title={course.title}
+                            body={course.body}
+                    />
+            ))}
+            {allCourse.map((course) => (
+                    <Card
+                            href={course.href}
+                            title={course.title}
+                            body={course.body}
+                    />
+            ))}
+            {allCourse.map((course) => (
+                    <Card
+                            href={course.href}
+                            title={course.title}
+                            body={course.body}
+                    />
+            ))}
+            {allCourse.map((course) => (
+                    <Card
+                            href={course.href}
+                            title={course.title}
+                            body={course.body}
+                    />
+            ))}
+        </ul>
+    </main>
+</Layout>
+<style is="scss">
+    main {
+        margin: auto;
+        padding: var(--page-padding-top) 20px 0;
+        max-width: 1440px;
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+
+    .link-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+        gap: 20px;
+        padding: 0;
+    }
+</style>
