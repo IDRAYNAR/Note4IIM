@@ -12,19 +12,11 @@ import EditNote from "./pages/EditNote";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div>
-    <React.StrictMode>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/lessons" element={<Lessons/>} />
-          <Route path="/students" element={<Students/>} />
-        </Routes>
-        </BrowserRouter>
-    </React.StrictMode>
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/lessons" element={<Lessons/>} />
         <Route path="/students" element={<Students/>}/>
         <Route path="/new-note" element={<NewNote/>}/>
         <Route path="/notes" element={<Notes/>}/>
