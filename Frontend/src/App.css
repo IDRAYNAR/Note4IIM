@@ -1,3 +1,9 @@
+@import url('https://fonts.cdnfonts.com/css/jetbrains-mono');
+
+* {
+  font-family: 'JetBrains Mono', monospace;
+}
+
 .App {
   text-align: center;
 }
