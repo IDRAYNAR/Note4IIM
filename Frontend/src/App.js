@@ -21,12 +21,12 @@ const App = () => {
   return (
     <div className="App">
       {lessons.map((lesson) => (
-        <div key={lesson.attributes.Email} style={{ margin: "0.5rem", padding: "0.5rem", display: "flex", flexDirection: "column" }}>
-          <p style={{ backgroundColor: "gray", padding: "0.5rem" }}>Name: <b>{lesson.attributes.Nom}</b></p>
-          <div style={{ border: "solid black 1px", padding: "0.5rem" }}>
+        <div key={lesson.attributes.Email} className="lessonCard has-padding">
+          <p className="has-padding">Name: <b>{lesson.attributes.Nom}</b></p>
+          <div className="lessonContent has-padding">
             <ReactMarkdown children={lesson.attributes.Notes} />
           </div>
-          <p style={{ backgroundColor: "gray", padding: "0.5rem" }}>Auteur: <b>{lesson.attributes.Auteur.data.attributes.Email}</b></p>
+          <p className="has-padding">Auteur: <b>{lesson.attributes.Auteur.data.attributes.Email}</b></p>
         </div>
       ))}
     </div>
