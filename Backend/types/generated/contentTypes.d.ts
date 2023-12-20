@@ -405,6 +405,7 @@ export interface ApiSpeakerSpeaker extends Schema.CollectionType {
     singularName: 'speaker';
     pluralName: 'speakers';
     displayName: 'Speakers';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -412,6 +413,18 @@ export interface ApiSpeakerSpeaker extends Schema.CollectionType {
   attributes: {
     Email: Attribute.Email;
     Password: Attribute.Password;
+    Nom: Attribute.String;
+    Prenom: Attribute.String;
+    Cours: Attribute.String;
+    Cursus: Attribute.Enumeration<
+      [
+        'Cr\u00E9ation & Design',
+        'D\u00E9veloppement Web',
+        'Jeu vid\u00E9o',
+        'Communication Digital',
+        'Animation 3D'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

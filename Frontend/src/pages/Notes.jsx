@@ -1,8 +1,9 @@
 import React from "react";
 import axios from "axios";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
+import "../dist/styles/Notes.css";
 
 const Notes = () => {
   const [error, setError] = useState(null);
@@ -14,7 +15,7 @@ const Notes = () => {
   useEffect(() => {
     axios
       .get("http://localhost:1337/api/lessons?populate=*")
-      .then(({data}) => setLessons(data.data))
+      .then(({ data }) => setLessons(data.data))
       .catch((error) => setError(error));
   }, []);
 
@@ -72,21 +73,23 @@ const Notes = () => {
                 Cours : <b>{lesson.attributes.Nom}</b>
               </p>
               <div className="lessonContent has-padding">
-                <ReactMarkdown children={lesson.attributes.Notes}/>
+                <ReactMarkdown children={lesson.attributes.Notes} />
               </div>
-              <p className="has-padding is-title">
-                Écrit par :{" "}
-                <b>
-                  {lesson.attributes.Auteur.data.attributes.Nom.toUpperCase()}{" "}
-                  {lesson.attributes.Auteur.data.attributes.Prenom.charAt(
-                    0
-                  ).toUpperCase()}
-                  {lesson.attributes.Auteur.data.attributes.Prenom.slice(1)} (
-                  {lesson.attributes.Auteur.data.attributes.Promotion} -{" "}
-                  {lesson.attributes.Auteur.data.attributes.Cursus})
-                </b>
-              </p>
-              <Link to={`/single-note/${lesson.id}`}>View Details</Link>
+              <div className="nameAndButton has-padding is-title">
+                <p>
+                  Écrit par :{" "}
+                  <b>
+                    {lesson.attributes.Auteur.data.attributes.Nom.toUpperCase()}{" "}
+                    {lesson.attributes.Auteur.data.attributes.Prenom.charAt(
+                      0
+                    ).toUpperCase()}
+                    {lesson.attributes.Auteur.data.attributes.Prenom.slice(1)} (
+                    {lesson.attributes.Auteur.data.attributes.Promotion} -{" "}
+                    {lesson.attributes.Auteur.data.attributes.Cursus})
+                  </b>
+                </p>
+                <Link to={`/single-note/${lesson.id}`}>Accéder au notes du cours</Link>
+              </div>
             </div>
           ) : null
         ))
