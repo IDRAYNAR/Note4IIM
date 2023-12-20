@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import "../dist/styles/main.css";
 
 const App = () => {
   const [error, setError] = useState(null);
