@@ -17,8 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-      "build-css": "sass src/styles/main.scss src/dist/styles/main.css"
-
+    "build-css": "sass src/styles/main.scss src/dist/styles/main.css"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "sass": "^1.69.5"
   }
 }
