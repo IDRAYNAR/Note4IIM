@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ReactMarkdown from 'react-markdown';
 
 const App = () => {
   const [error, setError] = useState(null);
-  const [students, setStudents] = useState([]);
+  const [lessons, setStudents] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:1337/api/students")
+      .get("http://localhost:1337/api/lessons?populate=*")
       .then(({ data }) => setStudents(data.data))
       .catch((error) => setError(error));
   }, []);
@@ -19,13 +20,13 @@ const App = () => {
 
   return (
     <div className="App">
-      {students.map((student) => (
-        <div key={student.attributes.Email} style={{ backgroundColor: "gray", margin: "0.5rem", padding: "0.5rem" }}>
-          <p>Name: <b>{student.attributes.Prenom}</b></p>
-          <p>LastName: <b>{student.attributes.Nom}</b></p>
-          <p>Email: <b>{student.attributes.Email}</b></p>
-          <p>Promotion: <b>{student.attributes.Promotion}</b></p>
-          <p>Cursus: <b>{student.attributes.Cursus}</b></p>
+      {lessons.map((lesson) => (
+        <div key={lesson.attributes.Email} style={{ margin: "0.5rem", padding: "0.5rem", display: "flex", flexDirection: "column" }}>
+          <p style={{ backgroundColor: "gray", padding: "0.5rem" }}>Name: <b>{lesson.attributes.Nom}</b></p>
+          <div style={{ border: "solid black 1px", padding: "0.5rem" }}>
+            <ReactMarkdown children={lesson.attributes.Notes} />
+          </div>
+          <p style={{ backgroundColor: "gray", padding: "0.5rem" }}>Auteur: <b>{lesson.attributes.Auteur.data.attributes.Email}</b></p>
         </div>
       ))}
     </div>
