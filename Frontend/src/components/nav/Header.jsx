@@ -14,6 +14,7 @@ const Header = () => {
         <li><Link to="/notes">Cours</Link></li>
         <li><Link to="/students">Étudiants</Link></li>
         <li><Link to="/speakers">Professeurs</Link></li>
+        <li><Link className="new" to="/new-note">Créer</Link></li>
       </ul>
     </nav>
   );

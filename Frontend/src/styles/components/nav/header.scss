@@ -21,26 +21,23 @@
 
                 > a {
                     margin-right: auto;
-                    padding: 1rem;
                     border-radius: 50%;
-                    background: $color-orange;
+                    background: $color-white;
                     position: relative;
-                    width: 20px;
-                    height: 20px;
-                    border: solid 1px $color-orange;
-                    transition: background .2s linear, border .2s linear;
+                    width: 40px;
+                    height: 40px;
+                    transition: opacity .2s linear;
 
-                    > span {
+                    > img {
                         position: absolute;
                         top: 50%;
                         left: 50%;
-                        transform: translate(-55%, -50%);
+                        transform: translate(-50%, -50%);
                         font-size: 30px;
                     }
 
                     &:hover {
-                        background: transparent;
-                        color: $color-white;
+                        opacity: .8;
                     }
                 }
             }
@@ -51,6 +48,19 @@
                 text-decoration: none;
                 color: white;
                 transition: color .2s linear;
+
+                &.new {
+                    background: $color-orange;
+                    color: $color-black;
+                    border-radius: 10px;
+                    border: none;
+                    transition: background .2s linear;
+
+                    &:hover {
+                        background: $color-white;
+                        color: $color-black;
+                    }
+                }
 
                 &:hover {
                     color: $color-orange;
