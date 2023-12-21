@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "../styles/Persons.css";
 
 const App = () => {
     const [speakers, setSpeakers] = useState([]);
@@ -19,7 +20,7 @@ const App = () => {
 
     const filteredSpeakers = speakers.filter((speaker) => {
         const byCursus = !selectedCursus || speaker.attributes.Cursus === selectedCursus;
-        return  byCursus;
+        return byCursus;
     });
 
     if (error) {
@@ -39,15 +40,17 @@ const App = () => {
                     <option value="Animation 3D">Animation 3D</option>
                 </select>
             </div>
-            {filteredSpeakers.map((speaker) => (
-                <div key={speaker.attributes.Email}>
-                    <p>{speaker.attributes.Nom}</p>
-                    <p>{speaker.attributes.Prenom}</p>
-                    <p>{speaker.attributes.Email}</p>
-                    <p>{speaker.attributes.Cours}</p>
-                    <p>{speaker.attributes.Cursus}</p>
-                </div>
-            ))}
+            <div className="personListContainer">
+                {filteredSpeakers.map((speaker) => (
+                    <div key={speaker.attributes.Email} className="personCard">
+                        <p>NOM: <b>{speaker.attributes.Nom.toUpperCase()}</b></p>
+                        <p>Prénom: <b>{speaker.attributes.Prenom.charAt(0).toUpperCase() + speaker.attributes.Prenom.slice(1)}</b></p>
+                        <p>Email: <b>{speaker.attributes.Email}</b></p>
+                        <p>Cours: <b>{speaker.attributes.Cours}</b></p>
+                        <p>Cursus: <b>{speaker.attributes.Cursus}</b></p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

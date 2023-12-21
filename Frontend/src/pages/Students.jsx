@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "../styles/Persons.css";
 
 const App = () => {
     const [error, setError] = useState(null);
@@ -53,15 +54,17 @@ const App = () => {
                     <option value="Animation 3D">Animation 3D</option>
                 </select>
             </div>
-            {filteredStudents.map((student) => (
-                <div key={student.attributes.Email}>
-                    <p>{student.attributes.Nom}</p>
-                    <p>{student.attributes.Prenom}</p>
-                    <p>{student.attributes.Email}</p>
-                    <p>{student.attributes.Promotion}</p>
-                    <p>{student.attributes.Cursus}</p>
-                </div>
-            ))}
+            <div className="personListContainer">
+                {filteredStudents.map((student) => (
+                    <div key={student.attributes.Email} className="personCard">
+                        <p>NOM: <b>{student.attributes.Nom.toUpperCase()}</b></p>
+                        <p>Prénom: <b>{student.attributes.Prenom.charAt(0).toUpperCase() + student.attributes.Prenom.slice(1)}</b></p>
+                        <p>Email: <b>{student.attributes.Email}</b></p>
+                        <p>Promotion: <b>{student.attributes.Promotion}</b></p>
+                        <p>Cursus: <b>{student.attributes.Cursus}</b></p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
