@@ -39,9 +39,6 @@
 }
 
 .noResult {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 75vh;
     font-weight: bold;
     font-size: 1.5rem;
