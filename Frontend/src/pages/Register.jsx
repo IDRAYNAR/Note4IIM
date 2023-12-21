@@ -21,6 +21,7 @@ const Register = () => {
    const handleSignUp = async () => {
        try {
            const { data, error } = await supabase.auth.signUp({ email, password });
+           window.location.href = '/profil'
            if (error) {
                throw error;
            }
