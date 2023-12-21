@@ -3,8 +3,10 @@
 
 // Pages
 @import "pages/home";
+@import "pages/notes";
 
 // Components
 @import "components/card";
 @import "components/layout";
 @import "components/nav/header";
+@import "components/push/note";
