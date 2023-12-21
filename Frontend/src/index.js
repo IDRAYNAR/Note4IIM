@@ -11,6 +11,7 @@ import EditNote from "./pages/EditNote";
 import Speakers from "./pages/Speakers.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <div>
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
@@ -24,4 +25,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
+  </div>
 );
