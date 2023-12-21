@@ -1,0 +1,30 @@
+.single-note {
+    .lessonContainer {
+        a {
+            color: $color-orange;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        code {
+            background: $color-orange-12;
+            color: $color-orange;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+
+    .btn-edit {
+        background-color: $color-orange;
+        padding: 10px 20px;
+        border-radius: 10px;
+        width: fit-content;
+        color: $color-black;
+        margin-right: auto;
+    }
+}

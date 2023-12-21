@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 const Note = ({title, description, auteur, link}) => {
   return (
     <div className={`comp-push-note`}>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <div className="auteur">{auteur}</div>
       {description ? (
         <div className="description">

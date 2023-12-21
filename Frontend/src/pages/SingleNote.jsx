@@ -20,14 +20,14 @@ const SingleNote = () => {
   }
 
   return (
-    <div className="containerElement">
+    <div className="containerElement wrapper -medium single-note">
       <h1>{note.attributes.Nom}</h1>
       <hr />
       <div className="lessonContainer">
         <ReactMarkdown children={note.attributes.Notes} />
       </div>
       <hr />
-      <Link to={`/edit-note/${note.id}`}>Modifier la note</Link>
+      <Link className="btn-edit" to={`/edit-note/${note.id}`}>Modifier la note</Link>
     </div>
   );
 };

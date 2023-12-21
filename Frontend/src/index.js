@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import React from "react";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import "./index.css";
-import "./styles/Global.css";
+import "./styles/global.css";
 import './dist/styles/main.css';
 import Home from "./pages/Home.jsx";
 import Students from "./pages/Students.jsx";
@@ -22,17 +22,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <Header/>
         <Routes>
-          <Route path="/" element={<Navigate replace to="/home" />} />
-          <Route path="/home" element={<Home/>}/>
-        <Route path="/speakers" element={<Layout><Speakers/></Layout>}/>
+          <Route path="/" element={<Navigate replace to="/home"/>}/>
+          <Route path="/home" element={<Layout><Home/></Layout>}/>
+          <Route path="/speakers" element={<Layout><Speakers/></Layout>}/>
           <Route path="/students" element={<Layout><Students/></Layout>}/>
           <Route path="/notes" element={<Layout><Notes/></Layout>}/>
           <Route path="/new-note" element={<Layout><NewNote/></Layout>}/>
           <Route path="/single-note/:id" element={<Layout><SingleNote/></Layout>}/>
           <Route path="/edit-note/:id" element={<Layout><EditNote/></Layout>}/>
           <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
-      </Routes>
+          <Route path="/register" element={<Register/>}/>
+        </Routes>
       </BrowserRouter>
     </React.StrictMode>
   </div>

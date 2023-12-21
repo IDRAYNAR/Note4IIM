@@ -44,7 +44,7 @@ const Notes = () => {
 
   return (
     <div className="notes wrapper -medium">
-      <h1>Page des notes</h1>
+      <h1>Toutes les notes</h1>
       <div className="selectContainer">
         <select value={selectedPromotion} onChange={handlePromotionChange}>
           <option value="">Toutes les promotions</option>
@@ -94,8 +94,8 @@ const Notes = () => {
                 </div>
               </div>*/
 
-              <Note title={lesson.attributes.Nom} auteur={lesson.attributes.Auteur.data.attributes.Nom}
-                    description={lesson.attributes.Notes} link={`/single-note/${lesson.id}`}/>
+              <Note title={lesson.attributes.Nom} auteur={lesson.attributes.Auteur.data.attributes.Prenom + ` ` + lesson.attributes.Auteur.data.attributes.Nom}
+                    link={`/single-note/${lesson.id}`}/>
             ) : null
           ))
         ) : (

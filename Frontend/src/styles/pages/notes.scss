@@ -1,4 +1,25 @@
 .notes {
+    h1 {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .selectContainer {
+        gap: 20px;
+
+        select {
+            background: $color-orange;
+            color: $color-black;
+            border: none;
+            width: fit-content;
+            border-radius: 10px;
+            padding: 10px;
+            height: fit-content;
+            cursor: pointer;
+            outline: none;
+        }
+    }
+
     .card-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
