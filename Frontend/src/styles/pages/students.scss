@@ -1,0 +1,18 @@
+.students {
+    .personListContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .personCard {
+            background: $color-grey;
+            border-radius: 10px;
+            padding: 20px;
+
+        .more-infos {
+            display: flex;
+            gap: 50px;
+        }
+        }
+    }
+}
