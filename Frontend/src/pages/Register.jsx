@@ -1,6 +1,18 @@
 import { supabase } from '../supabase';
 import { useState } from 'react';
 
+export const handleSignOut = async () => {
+    try {
+        const { error } = await supabase.auth.signOut();
+        if (error) {
+            throw error;
+        }
+        console.log('User signed out successfully');
+    } catch (error) {
+        console.log('Error signing out:', error);
+    }
+};
+
 const Register = () => {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
@@ -19,7 +31,6 @@ const Register = () => {
        }
    };
 
-
    return (
        <div>
            <h2>Sign Up</h2>
@@ -36,9 +47,12 @@ const Register = () => {
                onChange={(e) => setPassword(e.target.value)}
            />
            <button onClick={handleSignUp}>Sign Up</button>
+           <button onClick={handleSignOut}>Sign Out</button> 
        </div>
    );
 };
+
+
 
 
 export default Register;
