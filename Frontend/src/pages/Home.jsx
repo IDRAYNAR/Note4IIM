@@ -13,11 +13,9 @@ const Home = () => {
  
   return (
     <div className="home wrapper -medium">
-      <h1>Note 4 IIM</h1>
+      <h1>Bienvenue sur <strong style={{fontSize: 'larger', color: '#ED7000'}}>Note4IIM</strong></h1>
       <div className="doc">
-        <p>Cette appli permet de centraliser tous les cours d'une même classe.</p>
-        <p>Une élève peut ajouter un module puis créer une note de tout ce qui a été vu en cours.</p>
-        <p>Les profs y ont accès aussi.</p>
+        <p>Grâce à <strong style={{fontSize: 'larger', color: '#ED7000'}}>Note4IIM</strong>, n'importe quel etudiant de l'etablissement, si connecté peut acceder aux differents cours des differentes années (de 1 à 5) et des differents cursus. Les professeurs ont également accès à toutes les informations concernant les cours et les notes des élèves.</p>
       </div>
       <div className="card-container">
         <Card title="Cours" description="Accéder à tous les cours" link="/notes"/>

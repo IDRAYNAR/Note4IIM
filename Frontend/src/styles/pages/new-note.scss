@@ -41,6 +41,13 @@
         color: $color-black;
         margin-right: auto;
         border: none;
+        width: 100%;
         cursor: pointer;
+    }
+
+    .update-btn:hover {
+        background-color: $color-white;
+        color: $color-black;
+        transition: background 0.2s linear;
     }
 }
