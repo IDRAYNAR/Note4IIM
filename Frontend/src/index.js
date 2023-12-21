@@ -9,6 +9,8 @@ import NewNote from "./pages/NewNote.jsx";
 import Notes from "./pages/Notes.jsx";
 import SingleNote from "./pages/SingleNote.jsx";
 import EditNote from "./pages/EditNote";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div>
@@ -22,6 +24,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/notes" element={<Notes/>}/>
         <Route path="/single-note/:id" element={<SingleNote/>}/>
         <Route path="/edit-note/:id" element={<EditNote/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
