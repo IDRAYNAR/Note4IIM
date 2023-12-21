@@ -1,0 +1,61 @@
+.comp-nav-header {
+    background: $color-black;
+    position: fixed;
+    width: 100%;
+    z-index: 99999999;
+
+    ul {
+        padding: 25px;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+
+        li {
+            display: inline-block;
+
+            &.logo {
+                margin-right: auto;
+
+                > a {
+                    margin-right: auto;
+                    padding: 1rem;
+                    border-radius: 50%;
+                    background: $color-orange;
+                    position: relative;
+                    width: 20px;
+                    height: 20px;
+                    border: solid 1px $color-orange;
+                    transition: background .2s linear, border .2s linear;
+
+                    > span {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-55%, -50%);
+                        font-size: 30px;
+                    }
+
+                    &:hover {
+                        background: transparent;
+                        color: $color-white;
+                    }
+                }
+            }
+
+            a {
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                color: white;
+                transition: color .2s linear;
+
+                &:hover {
+                    color: $color-orange;
+                }
+            }
+        }
+    }
+}

@@ -11,6 +11,10 @@
         padding: 20px;
         background-color: $color-grey;
         margin-bottom: 30px;
+
+        > p:not(:last-child) {
+            margin-bottom: 5px;
+        }
     }
 
     > .card-container {

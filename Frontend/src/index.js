@@ -10,21 +10,24 @@ import Notes from "./pages/Notes.jsx";
 import SingleNote from "./pages/SingleNote.jsx";
 import EditNote from "./pages/EditNote";
 import Speakers from "./pages/Speakers.jsx";
+import Header from "./components/nav/Header.jsx";
+import Layout from "./components/Layout"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div>
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/speakers" element={<Speakers/>}/>
-        <Route path="/students" element={<Students/>}/>
-        <Route path="/notes" element={<Notes/>}/>
-        <Route path="/new-note" element={<NewNote/>}/>
-        <Route path="/single-note/:id" element={<SingleNote/>}/>
-        <Route path="/edit-note/:id" element={<EditNote/>}/>
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Layout><Home/></Layout>}/>
+          <Route path="/speakers" element={<Layout><Speakers/></Layout>}/>
+          <Route path="/students" element={<Layout><Students/></Layout>}/>
+          <Route path="/notes" element={<Layout><Notes/></Layout>}/>
+          <Route path="/new-note" element={<Layout><NewNote/></Layout>}/>
+          <Route path="/single-note/:id" element={<Layout><SingleNote/></Layout>}/>
+          <Route path="/edit-note/:id" element={<Layout><EditNote/></Layout>}/>
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
   </div>
 );

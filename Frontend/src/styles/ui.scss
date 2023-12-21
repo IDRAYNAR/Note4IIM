@@ -3,7 +3,6 @@
     padding: 0;
 
     body {
-        padding: 2rem 1rem;
         background-color: $color-black;
         color: $color-white;
 
@@ -69,4 +68,8 @@
     &.-medium {
         max-width: 960px;
     }
+}
+
+a {
+    text-decoration: none;
 }

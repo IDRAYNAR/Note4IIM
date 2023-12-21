@@ -1,5 +1,10 @@
 // Color
 $color-black: #000000;
-$color-grey: #18181A;
+$color-grey: #202023;
+$color-light-grey: #2f2f33;
 $color-white: #FFFFFF;
 $color-orange: #ED7000;
+
+:root {
+    --navbar-height: 90px;
+}

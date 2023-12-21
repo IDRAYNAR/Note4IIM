@@ -1,0 +1,41 @@
+.comp-card {
+    border-radius: 10px;
+    padding: 20px;
+    background: $color-grey;
+    color: $color-white;
+    border: solid 1px transparent;
+    text-align: left;
+    transition: background .2s linear, border .2s linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > h3 {
+        transition: color .2s linear;
+    }
+
+    > p {
+        margin-top: 10px;
+    }
+
+    &:hover {
+        background: $color-light-grey;
+
+        > h3 {
+            color: $color-orange;
+        }
+    }
+
+    &.-portal {
+        background: $color-orange;
+        transition: opacity .2s linear;
+
+        &:hover {
+            opacity: .8;
+
+            > h3 {
+                color: $color-white;
+            }
+        }
+    }
+}
