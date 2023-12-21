@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import React from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import "./index.css";
 import Home from "./pages/Home.jsx";
 import Students from "./pages/Students.jsx";
@@ -17,7 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Navigate replace to="/home" />} />
         <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/speakers" element={<Speakers/>}/>
         <Route path="/students" element={<Students/>}/>
         <Route path="/notes" element={<Notes/>}/>
