@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import ReactMarkdown from "react-markdown";
 import {Link} from "react-router-dom";
 import Note from "../components/push/Note";
+import "../styles/Notes.css";
 
 const Notes = () => {
   const [error, setError] = useState(null);
