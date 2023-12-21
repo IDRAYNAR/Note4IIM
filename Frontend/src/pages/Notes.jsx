@@ -3,7 +3,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
-import "../dist/styles/Notes.css";
 
 const Notes = () => {
   const [error, setError] = useState(null);
