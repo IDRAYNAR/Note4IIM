@@ -13,6 +13,11 @@
         justify-content: flex-end;
         gap: 20px;
 
+        .creditsButton {
+            display: flex;
+            gap: 2rem;
+        }
+
         li {
             display: inline-block;
 

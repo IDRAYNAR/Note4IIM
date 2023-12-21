@@ -29,7 +29,6 @@ const App = () => {
   });
 
   if (error) {
-    // Print errors if any
     return <div>An error occured: {error.message}</div>;
   }
 
