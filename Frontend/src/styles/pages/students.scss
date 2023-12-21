@@ -1,4 +1,8 @@
 .students {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
     .personListContainer {
         display: flex;
         flex-direction: column;
@@ -8,15 +12,21 @@
             background: $color-grey;
             border-radius: 10px;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border: 1px solid black;
+            border-radius: 0.25rem;
 
             code {
                 font-size: 15px;
             }
 
-        .more-infos {
-            display: flex;
-            gap: 50px;
-        }
+            .more-infos {
+                display: flex;
+                gap: 50px;
+            }
         }
     }
 }

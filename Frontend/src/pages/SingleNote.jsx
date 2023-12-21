@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
-import "../styles/SingleNote.css";
 
 const SingleNote = () => {
   const { id } = useParams();

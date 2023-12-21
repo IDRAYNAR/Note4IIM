@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import Note from "../components/push/Note";
-import "../styles/Notes.css";
 
 const Notes = () => {
   const [error, setError] = useState(null);

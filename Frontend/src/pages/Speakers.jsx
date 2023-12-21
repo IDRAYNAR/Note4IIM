@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import "../styles/Persons.css";
 
 const App = () => {
   const [speakers, setSpeakers] = useState([]);

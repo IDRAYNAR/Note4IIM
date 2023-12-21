@@ -1,5 +1,17 @@
 .single-note {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 1rem;
+
     .lessonContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+
         a {
             color: $color-orange;
             text-decoration: none;

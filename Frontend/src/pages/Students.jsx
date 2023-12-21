@@ -1,6 +1,5 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
-import "../styles/Persons.css";
 
 const App = () => {
   const [error, setError] = useState(null);

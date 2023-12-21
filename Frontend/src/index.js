@@ -2,7 +2,6 @@ import ReactDOM from "react-dom/client";
 import React from "react";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import "./index.css";
-import "./styles/global.css";
 import './dist/styles/main.css';
 import Home from "./pages/Home.jsx";
 import Students from "./pages/Students.jsx";
