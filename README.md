@@ -1,5 +1,7 @@
 # Note4IIM : A note taking app for IIM students
 
+[![IDRAYNAR - Note4IIM](https://img.shields.io/static/v1?label=IDRAYNAR&message=Note4IIM&color=blue&logo=github)](https://github.com/IDRAYNAR/Note4IIM "Go to GitHub repo")
+[![stars - Note4IIM](https://img.shields.io/github/stars/IDRAYNAR/Note4IIM?style=social)](https://github.com/IDRAYNAR/Note4IIM)
 [![GitHub tag](https://img.shields.io/github/tag/IDRAYNAR/Note4IIM?include_prereleases=&sort=semver&color=blue)](https://github.com/IDRAYNAR/Note4IIM/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![issues - Note4IIM](https://img.shields.io/github/issues/IDRAYNAR/Note4IIM)](https://github.com/IDRAYNAR/Note4IIM/issues)
