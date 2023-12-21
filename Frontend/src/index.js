@@ -14,6 +14,7 @@ import Register from "./pages/Register.jsx";
 import Speakers from "./pages/Speakers.jsx";
 import Header from "./components/nav/Header.jsx";
 import Layout from "./components/Layout"
+import Profile  from "./pages/Profil.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div>
@@ -31,7 +32,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/edit-note/:id" element={<Layout><EditNote/></Layout>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
-        </Routes>
+          <Route path="/profil" element={<Profile/>}/>
+      </Routes>
       </BrowserRouter>
     </React.StrictMode>
   </div>
