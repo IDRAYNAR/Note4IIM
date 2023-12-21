@@ -25,7 +25,6 @@ const Home = () => {
         <Card title="Professeurs" description="Liste de tous les professeurs" link="/speakers"/>
         <Card title="Portail De-Vinci" target="_blank" link="https://www.leonard-de-vinci.net/" className="-portal"/>
       </div>
-      <button onClick={logout}>Sign Out</button> 
     </div>
   );
 };
