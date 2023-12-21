@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 import {useEffect, useState} from "react";
-import ReactMarkdown from "react-markdown";
-import {Link} from "react-router-dom";
 import Note from "../components/push/Note";
 import "../styles/Notes.css";
 
@@ -67,33 +65,6 @@ const Notes = () => {
         {filteredLessons.length > 0 ? (
           filteredLessons.map((lesson) => (
             lesson.attributes.Nom && lesson.attributes.Nom.trim() !== '' ? (
-              /*<div
-                key={lesson.attributes.Email}
-                className="lessonCard"
-              >
-                <p className="has-padding is-title">
-                  Cours : <b>{lesson.attributes.Nom}</b>
-                </p>
-                <div className="lessonContent has-padding">
-                  <ReactMarkdown children={lesson.attributes.Notes} />
-                </div>
-                <div className="nameAndButton has-padding is-title">
-                  <p>
-                    Écrit par :{" "}
-                    <b>
-                      {lesson.attributes.Auteur.data.attributes.Nom.toUpperCase()}{" "}
-                      {lesson.attributes.Auteur.data.attributes.Prenom.charAt(
-                        0
-                      ).toUpperCase()}
-                      {lesson.attributes.Auteur.data.attributes.Prenom.slice(1)} (
-                      {lesson.attributes.Auteur.data.attributes.Promotion} -{" "}
-                      {lesson.attributes.Auteur.data.attributes.Cursus})
-                    </b>
-                  </p>
-                  <Link to={`/single-note/${lesson.id}`}>Accéder au notes du cours</Link>
-                </div>
-              </div>*/
-
               <Note title={lesson.attributes.Nom} auteur={lesson.attributes.Auteur.data.attributes.Prenom + ` ` + lesson.attributes.Auteur.data.attributes.Nom}
                     link={`/single-note/${lesson.id}`}/>
             ) : null
