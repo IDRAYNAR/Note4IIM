@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import axios from "axios";
 
 const EditNote = () => {
@@ -39,15 +39,15 @@ const EditNote = () => {
     }
 
     return (
-      <div>
+      <div className="edit-note wrapper -medium">
           <h1>Page d'édition d'une note</h1>
-          <form onSubmit={(event) => updateLesson(event, id)}>
+          <form className="form" onSubmit={(event) => updateLesson(event, id)}>
               <label htmlFor="nom">Nom du cours</label>
-              <input type="text" id="nom" name="nom" defaultValue={note?.attributes?.Nom}/>
+              <input className="input-title" type="text" id="nom" name="nom" defaultValue={note?.attributes?.Nom}/>
 
               <label htmlFor="notes">Notes</label>
-              <textarea id="notes" name="notes" defaultValue={note?.attributes?.Notes}></textarea>
-              <button type="submit">Update Lesson</button>
+              <textarea className="input-notes" id="notes" name="notes" defaultValue={note?.attributes?.Notes}></textarea>
+              <button className="update-btn" type="submit">Update Lesson</button>
           </form>
       </div>
     );

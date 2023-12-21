@@ -4,7 +4,8 @@
   "info": {
     "singularName": "speaker",
     "pluralName": "speakers",
-    "displayName": "Speakers"
+    "displayName": "Speakers",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,25 @@
     },
     "Password": {
       "type": "password"
+    },
+    "Nom": {
+      "type": "string"
+    },
+    "Prenom": {
+      "type": "string"
+    },
+    "Cours": {
+      "type": "string"
+    },
+    "Cursus": {
+      "type": "enumeration",
+      "enum": [
+        "Création & Design",
+        "Développement Web",
+        "Jeu vidéo",
+        "Communication Digital",
+        "Animation 3D"
+      ]
     }
   }
 }

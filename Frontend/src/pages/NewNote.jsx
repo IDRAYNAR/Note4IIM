@@ -56,16 +56,16 @@ const NewNote = () => {
   }
 
   return (
-    <div className="new-note">
+    <div className="new-note wrapper -medium">
       <h1>Créer une nouvelle note</h1>
 
-      <form onSubmit={createNewLesson}>
+      <form className="form" onSubmit={createNewLesson}>
         <label htmlFor="nom">Nom du cours</label>
-        <input type="text" id="nom" name="nom" />
+        <input className="input-title" type="text" id="nom" name="nom" />
 
         <label htmlFor="notes">Notes</label>
-        <textarea id="notes" name="notes"></textarea>
-        <button type="submit">Créer un nouveau cours</button>
+        <textarea className="input-notes" id="notes" name="notes"></textarea>
+        <button className="update-btn" type="submit">Créer un nouveau cours</button>
       </form>
     </div>
   );

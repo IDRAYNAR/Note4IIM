@@ -1,0 +1,53 @@
+.new-note {
+    h1 {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+
+        .input-title {
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            padding: 10px;
+            border: none;
+            background: $color-grey;
+            color: $color-white;
+            outline: none;
+        }
+
+        .input-notes {
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            padding: 10px;
+            border: none;
+            background: $color-grey;
+            color: $color-white;
+            outline: none;
+            height: 300px;
+            resize: none;
+        }
+    }
+
+    .update-btn {
+        background-color: $color-orange;
+        padding: 10px 20px;
+        border-radius: 10px;
+        width: fit-content;
+        color: $color-black;
+        margin-right: auto;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .update-btn:hover {
+        background-color: $color-white;
+        color: $color-black;
+        transition: background 0.2s linear;
+    }
+}
