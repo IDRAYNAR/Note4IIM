@@ -1,4 +1,4 @@
-# Project Name
+# Note4IIM : A note taking app for IIM students
 
 ## Overview
 This is a full-stack web application built with Create React App for the frontend and Strapi for the backend. The frontend code is located in the Frontend directory, and the backend code is located in the Backend directory.
