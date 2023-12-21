@@ -1,0 +1,30 @@
+.home {
+    > h1 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    > .doc {
+        border-radius: 10px;
+        border: solid 1px $color-orange;
+        padding: 20px;
+        background-color: $color-grey;
+        margin-bottom: 30px;
+    }
+
+    > .card-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+
+        > .card {
+            border-radius: 10px;
+            padding: 20px;
+            background-color: $color-grey;
+            color: $color-white;
+            border: none;
+            text-align: left;
+        }
+    }
+}
