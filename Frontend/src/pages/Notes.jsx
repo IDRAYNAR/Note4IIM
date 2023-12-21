@@ -66,7 +66,7 @@ const Notes = () => {
           filteredLessons.map((lesson) => (
             lesson.attributes.Nom && lesson.attributes.Nom.trim() !== '' ? (
               <Note title={lesson.attributes.Nom} auteur={lesson.attributes.Auteur.data.attributes.Prenom + ` ` + lesson.attributes.Auteur.data.attributes.Nom}
-                    link={`/single-note/${lesson.id}`}/>
+                    link={`/single-note/${lesson.id}`} annee={lesson.attributes.Auteur.data.attributes.Promotion} cursus={lesson.attributes.Auteur.data.attributes.Cursus} />
             ) : null
           ))
         ) : (

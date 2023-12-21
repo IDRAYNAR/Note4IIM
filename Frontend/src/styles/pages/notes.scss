@@ -25,5 +25,11 @@
         grid-template-columns: 1fr 1fr;
         gap: 30px;
         margin-top: 30px;
+
+        .tag {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
     }
 }
