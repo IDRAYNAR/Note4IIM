@@ -1,0 +1,74 @@
+.notes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .selectContainer {
+        gap: 20px;
+        display: flex;
+
+        select {
+            background: $color-orange;
+            color: $color-black;
+            border: none;
+            width: fit-content;
+            border-radius: 10px;
+            padding: 10px;
+            height: fit-content;
+            cursor: pointer;
+            outline: none;
+        }
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 30px;
+
+        .tag {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .lessonCard {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lessonContent {
+        border: 1px solid black;
+        max-height: 12.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nameAndButton {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nameAndButton > a {
+        text-decoration: none;
+        color: white;
+        padding-right: 1rem;
+    }
+
+    .nameAndButton > a:hover {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .noResult {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+}
