@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {useState} from "react";
 
 const NewNote = () => {
-  const [error] = useState(null);
-  const [lessons, setLessons] = useState([]);
+  const [error, setError] = useState(null);
+  const [redirect, setRedirect] = useState(false); // State to trigger redirect
+  const [lessonId, setLessonId] = useState(null);
 
   const createNewLesson = (event) => {
     event.preventDefault();
@@ -23,23 +23,33 @@ const NewNote = () => {
             Auteur: student.data.id
           }
         })
-          .then(({data}) => {
-            if (data.data.attributes && data.data.attributes.Nom !== undefined && data.attributes.Nom !== null) {
-              setLessons([...lessons, data]);
+          .then(({ data }) => {
+            if (data && data.data && data.data.id) {
+              setLessonId(data.data.id); // Store the ID of the newly created lesson
+              setRedirect(true); // Set redirect to true
             } else {
-              console.error("Received lesson data has undefined or null 'Nom'");
+              console.error("Received invalid lesson data");
             }
           })
           .catch((error) => {
             if (error.response) {
               console.error("Error response from server:", error.response.data);
             }
+            setError(error);
           });
       })
       .catch((error) => {
         console.error("Error fetching student:", error);
+        setError(error);
       });
   };
+
+  useEffect(() => {
+    if (redirect && lessonId) {
+      // Perform the redirect here using window.location.href
+      window.location.href = `/single-note/${lessonId}`;
+    }
+  }, [redirect, lessonId]);
 
   if (error) {
     return <div>Une erreur s'est produite : {error.message}</div>;
@@ -51,7 +61,7 @@ const NewNote = () => {
 
       <form onSubmit={createNewLesson}>
         <label htmlFor="nom">Nom du cours</label>
-        <input type="text" id="nom" name="nom"/>
+        <input type="text" id="nom" name="nom" />
 
         <label htmlFor="notes">Notes</label>
         <textarea id="notes" name="notes"></textarea>
@@ -61,4 +71,4 @@ const NewNote = () => {
   );
 };
 
-export default NewNote
+export default NewNote;
