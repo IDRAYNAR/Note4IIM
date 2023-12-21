@@ -11,13 +11,12 @@
         .personCard {
             background: $color-grey;
             border-radius: 10px;
-            padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            padding: 0.5rem;
+            padding: 1rem;
             border: 1px solid black;
-            border-radius: 0.25rem;
+            border-radius: 10px;
 
             code {
                 font-size: 15px;

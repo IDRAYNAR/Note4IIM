@@ -123,14 +123,9 @@ select {
 
 code {
     font-family: monospace;
-    scrollbar-color: #666 #201c29;
-    background: black;
     white-space: pre;
-    -webkit-overflow-scrolling: touch;
     display: block;
     max-width: 100%;
     border-radius: 0.5rem;
-    color: whitesmoke;
-    padding: 1rem;
     line-height: 1.5;
 }

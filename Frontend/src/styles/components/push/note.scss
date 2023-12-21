@@ -52,6 +52,12 @@
             left: 0;
             content: "";
         }
+
+        &:hover {
+            opacity: 0.8;
+            color: $color-black;
+            transition: background 0.2s linear;
+        }
     }
 
     &:hover {

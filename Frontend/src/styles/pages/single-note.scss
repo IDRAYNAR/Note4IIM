@@ -38,4 +38,10 @@
         color: $color-black;
         margin-right: auto;
     }
+
+    .btn-edit:hover {
+        background-color: $color-white;
+        color: $color-black;
+        transition: background 0.2s linear;
+    }
 }
