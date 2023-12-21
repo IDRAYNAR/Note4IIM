@@ -7,7 +7,6 @@ const Login = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        // Vérifier si l'utilisateur est déjà connecté au chargement de la page
         const session = supabase.auth.getSession;
         if (session) {
             setIsLoggedIn(true);
@@ -16,11 +15,11 @@ const Login = () => {
 
     const handleLogin = async () => {
         const { data, error } = await supabase.auth.signInWithPassword
-        ({
-            email,
-            password,
-        });
-        window.location.href ="/"
+            ({
+                email,
+                password,
+            });
+        window.location.href = "/"
         if (error) {
             console.error('Error signing in:', error.message);
         } else {
@@ -36,17 +35,17 @@ const Login = () => {
                 throw error;
             }
             console.log('User signed out successfully');
-            setIsLoggedIn(false); // Mettre à jour l'état de connexion à false après la déconnexion
+            setIsLoggedIn(false);
         } catch (error) {
             console.log('Error signing out:', error);
         }
     };
 
-    const renderSignOutButton = isLoggedIn ? <button onClick={handleSignOut}>Sign Out</button> : null;
+    const renderSignOutButton = isLoggedIn ? <button onClick={handleSignOut} className='disconnect'>Se déconnecter</button> : null;
 
     return (
-        <div>
-            <h1>Login Page</h1>
+        <div className="creditential">
+            <h1>Connexion</h1>
             <input
                 type="email"
                 placeholder="Email"
@@ -59,8 +58,10 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={handleLogin}>Login</button>
-            {renderSignOutButton}
+            <div className='buttonContainer'>
+                <button onClick={handleLogin}>Se connecter</button>
+                {renderSignOutButton}
+            </div>
         </div>
     );
 };

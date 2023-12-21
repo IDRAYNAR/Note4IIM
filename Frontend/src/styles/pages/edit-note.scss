@@ -32,13 +32,19 @@
     }
 
     .update-btn {
-        background-color: $color-orange;
-        padding: 10px 20px;
-        border-radius: 10px;
-        width: fit-content;
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        background: $color-orange;
         color: $color-black;
-        margin-right: auto;
+        border-radius: 10px;
         border: none;
+    }
+
+    .update-btn:hover {
+        background: $color-white;
+        color: $color-black;
+        transition: background 0.2s linear;
         cursor: pointer;
     }
 }

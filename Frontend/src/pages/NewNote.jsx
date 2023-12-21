@@ -3,7 +3,7 @@ import axios from "axios";
 
 const NewNote = () => {
   const [error, setError] = useState(null);
-  const [redirect, setRedirect] = useState(false); // State to trigger redirect
+  const [redirect, setRedirect] = useState(false);
   const [lessonId, setLessonId] = useState(null);
 
   const createNewLesson = (event) => {
@@ -12,21 +12,23 @@ const NewNote = () => {
     const nom = form.nom.value;
     const notes = form.notes.value;
 
-    axios.get("http://localhost:1337/api/students/2")
-      .then((response) => {
-        const student = response.data;
+    axios.get("http://localhost:1337/api/students")
+    .then((response) => {
+      const students = response.data.data;
+      const randomIndex = Math.floor(Math.random() * students.length);
+      const selectedStudent = students[randomIndex];
 
         axios.post("http://localhost:1337/api/lessons", {
           data: {
             Nom: nom,
             Notes: notes,
-            Auteur: student.data.id
+            Auteur: selectedStudent.id
           }
         })
           .then(({ data }) => {
             if (data && data.data && data.data.id) {
-              setLessonId(data.data.id); // Store the ID of the newly created lesson
-              setRedirect(true); // Set redirect to true
+              setLessonId(data.data.id);
+              setRedirect(true);
             } else {
               console.error("Received invalid lesson data");
             }
@@ -46,7 +48,6 @@ const NewNote = () => {
 
   useEffect(() => {
     if (redirect && lessonId) {
-      // Perform the redirect here using window.location.href
       window.location.href = `/single-note/${lessonId}`;
     }
   }, [redirect, lessonId]);

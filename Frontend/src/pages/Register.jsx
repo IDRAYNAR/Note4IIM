@@ -14,48 +14,48 @@ export const handleSignOut = async () => {
 };
 
 const Register = () => {
-   const [email, setEmail] = useState('');
-   const [password, setPassword] = useState('');
-   const [isLoggedIn, setIsLoggedIn] = useState(false); 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-   const handleSignUp = async () => {
-       try {
-           const { data, error } = await supabase.auth.signUp({ email, password });
-           localStorage.setItem('signupEmail', email);
-           window.location.href = '/profil'
-           if (error) {
-               throw error;
-           }
-           // Mettre à jour l'état de connexion à true après l'inscription réussie
-           setIsLoggedIn(true);
-           // Handle successful signup
-           console.log('User signed up:', data);
-       } catch (error) {
-           console.log('Error signing up:', error);
-       }
-   };
+    const handleSignUp = async () => {
+        try {
+            const { data, error } = await supabase.auth.signUp({ email, password });
+            localStorage.setItem('signupEmail', email);
+            window.location.href = '/profil'
+            if (error) {
+                throw error;
+            }
+            setIsLoggedIn(true);
+            console.log('User signed up:', data);
+        } catch (error) {
+            console.log('Error signing up:', error);
+        }
+    };
 
-   const renderSignOutButton = isLoggedIn ? <button onClick={handleSignOut}>Sign Out</button> : null;
+    const renderSignOutButton = isLoggedIn ? <button onClick={handleSignOut}>Sign Out</button> : null;
 
-   return (
-       <div>
-           <h2>Sign Up</h2>
-           <input
-               type="email"
-               placeholder="Email"
-               value={email}
-               onChange={(e) => setEmail(e.target.value)}
-           />
-           <input
-               type="password"
-               placeholder="Password"
-               value={password}
-               onChange={(e) => setPassword(e.target.value)}
-           />
-           <button onClick={handleSignUp}>Sign Up</button>
-           {renderSignOutButton}
-       </div>
-   );
+    return (
+        <div className="creditential">
+            <h1>Inscription</h1>
+            <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className='buttonContainer'>
+            <button onClick={handleSignUp}>S'inscrire</button>
+            </div>
+            {renderSignOutButton}
+        </div>
+    );
 };
 
 
