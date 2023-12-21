@@ -26,9 +26,10 @@
                     position: relative;
                     width: 40px;
                     height: 40px;
-                    transition: opacity .2s linear;
+                    transition: opacity 0.2s linear;
 
                     > img {
+                        width: 50%;
                         position: absolute;
                         top: 50%;
                         left: 50%;
@@ -37,7 +38,7 @@
                     }
 
                     &:hover {
-                        opacity: .8;
+                        box-shadow: 0 0 10px 5px $color-orange;
                     }
                 }
             }
@@ -47,14 +48,14 @@
                 padding: 10px;
                 text-decoration: none;
                 color: white;
-                transition: color .2s linear;
+                transition: color 0.2s linear;
 
                 &.new {
                     background: $color-orange;
                     color: $color-black;
                     border-radius: 10px;
                     border: none;
-                    transition: background .2s linear;
+                    transition: background 0.2s linear;
 
                     &:hover {
                         background: $color-white;
