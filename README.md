@@ -1,5 +1,9 @@
 # Note4IIM : A note taking app for IIM students
 
+[![GitHub tag](https://img.shields.io/github/tag/IDRAYNAR/Note4IIM?include_prereleases=&sort=semver&color=blue)](https://github.com/IDRAYNAR/Note4IIM/releases/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+[![issues - Note4IIM](https://img.shields.io/github/issues/IDRAYNAR/Note4IIM)](https://github.com/IDRAYNAR/Note4IIM/issues)
+
 ## Overview
 This is a full-stack web application built with Create React App for the frontend and Strapi for the backend. The frontend code is located in the Frontend directory, and the backend code is located in the Backend directory.
 
