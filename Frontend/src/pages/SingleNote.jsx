@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
-import "../styles/SingleNote.css";
 
 const SingleNote = () => {
   const { id } = useParams();
@@ -20,14 +19,14 @@ const SingleNote = () => {
   }
 
   return (
-    <div className="containerElement">
+    <div className="containerElement wrapper -medium single-note">
       <h1>{note.attributes.Nom}</h1>
       <hr />
       <div className="lessonContainer">
         <ReactMarkdown children={note.attributes.Notes} />
       </div>
       <hr />
-      <Link to={`/edit-note/${note.id}`}>Modifier la note</Link>
+      <Link className="btn-edit" to={`/edit-note/${note.id}`}>Modifier la note</Link>
     </div>
   );
 };

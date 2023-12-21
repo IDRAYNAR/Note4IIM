@@ -1,0 +1,47 @@
+.single-note {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 1rem;
+
+    .lessonContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+
+        a {
+            color: $color-orange;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        code {
+            background: $color-orange-12;
+            color: $color-orange;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+        }
+    }
+
+    .btn-edit {
+        background-color: $color-orange;
+        padding: 10px 20px;
+        border-radius: 10px;
+        width: fit-content;
+        color: $color-black;
+        margin-right: auto;
+    }
+
+    .btn-edit:hover {
+        background-color: $color-white;
+        color: $color-black;
+        transition: background 0.2s linear;
+    }
+}
