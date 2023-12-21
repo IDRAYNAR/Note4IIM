@@ -2,6 +2,7 @@ import ReactDOM from "react-dom/client";
 import React from "react";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import "./index.css";
+import "./styles/Global.css";
 import Home from "./pages/Home.jsx";
 import Students from "./pages/Students.jsx";
 import NewNote from "./pages/NewNote.jsx";
