@@ -1,5 +1,10 @@
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.REACT_APP_SUPALINK;
+const supabaseAnonKey = process.env.REACT_APP_SUPAKEY;
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const App = () => {
   const [speakers, setSpeakers] = useState([]);
@@ -11,14 +16,23 @@ const App = () => {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:1337/api/speakers")
-      .then(({data}) => setSpeakers(data.data))
-      .catch((error) => setError(error));
+    const fetchSpeakers = async () => {
+      let { data: speakersData, error } = await supabase
+        .from('N4I_Speakers')
+        .select('name, email, cursus');
+
+      if (error) {
+        setError(error);
+      } else {
+        setSpeakers(speakersData);
+      }
+    };
+
+    fetchSpeakers();
   }, []);
 
   const filteredSpeakers = speakers.filter((speaker) => {
-    const byCursus = !selectedCursus || speaker.attributes.Cursus === selectedCursus;
+    const byCursus = !selectedCursus || speaker.cursus === selectedCursus;
     return byCursus;
   });
 
@@ -40,14 +54,13 @@ const App = () => {
       </div>
       <div className="personListContainer">
         {filteredSpeakers.map((speaker) => (
-          <div key={speaker.attributes.Email} className="personCard">
+          <div key={speaker.email} className="personCard">
             <p>
-              <b>{speaker.attributes.Nom.toUpperCase()} {speaker.attributes.Prenom.charAt(0).toUpperCase() + speaker.attributes.Prenom.slice(1)}</b>
+              <b>{speaker.name.toUpperCase()}</b>
             </p>
-            <code>{speaker.attributes.Email}</code>
+            <code>{speaker.email}</code>
             <div className="more-infos">
-              <p>Cours: <b>{speaker.attributes.Cours}</b></p>
-              <p>Cursus: <b>{speaker.attributes.Cursus}</b></p>
+              <p>Cursus: <b>{speaker.cursus}</b></p>
             </div>
           </div>
         ))}
@@ -55,6 +68,5 @@ const App = () => {
     </div>
   );
 };
-
 
 export default App;

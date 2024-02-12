@@ -1,21 +1,35 @@
-import axios from "axios";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.REACT_APP_SUPALINK;
+const supabaseAnonKey = process.env.REACT_APP_SUPAKEY;
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const App = () => {
   const [error, setError] = useState(null);
   const [students, setStudents] = useState([]);
-  const [selectedPromotion, setSelectedPromotion] = useState("");
+  const [selectedYear, setSelectedYear] = useState("");
   const [selectedCursus, setSelectedCursus] = useState("");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:1337/api/students")
-      .then(({data}) => setStudents(data.data))
-      .catch((error) => setError(error));
+    const fetchStudents = async () => {
+      let { data: studentsData, error } = await supabase
+        .from('N4I_Students')
+        .select('name, email, cursus, year');
+
+      if (error) {
+        setError(error);
+      } else {
+        setStudents(studentsData);
+      }
+    };
+
+    fetchStudents();
   }, []);
 
-  const handlePromotionChange = (event) => {
-    setSelectedPromotion(event.target.value);
+  const handleYearChange = (event) => {
+    setSelectedYear(event.target.value);
   };
 
   const handleCursusChange = (event) => {
@@ -23,9 +37,9 @@ const App = () => {
   };
 
   const filteredStudents = students.filter((student) => {
-    const byPromotion = !selectedPromotion || student.attributes.Promotion === selectedPromotion;
-    const byCursus = !selectedCursus || student.attributes.Cursus === selectedCursus;
-    return byPromotion && byCursus;
+    const byYear = !selectedYear || student.year.toString() === selectedYear;
+    const byCursus = !selectedCursus || student.cursus === selectedCursus;
+    return byYear && byCursus;
   });
 
   if (error) {
@@ -35,13 +49,13 @@ const App = () => {
   return (
     <div className="App students wrapper -medium">
       <div className="selectContainer">
-        <select value={selectedPromotion} onChange={handlePromotionChange}>
-          <option value="">Toutes les promotions</option>
-          <option value="A1">A1</option>
-          <option value="A2">A2</option>
-          <option value="A3">A3</option>
-          <option value="A4">A4</option>
-          <option value="A5">A5</option>
+        <select value={selectedYear} onChange={handleYearChange}>
+          <option value="">Toutes les années</option>
+          <option value="1">A1</option>
+          <option value="2">A2</option>
+          <option value="3">A3</option>
+          <option value="4">A4</option>
+          <option value="5">A5</option>
         </select>
         <select value={selectedCursus} onChange={handleCursusChange}>
           <option value="">Tous les cursus</option>
@@ -54,14 +68,14 @@ const App = () => {
       </div>
       <div className="personListContainer">
         {filteredStudents.map((student) => (
-          <div key={student.attributes.Email} className="personCard">
+          <div key={student.email} className="personCard">
             <p>
-              <b>{student.attributes.Nom.toUpperCase()} {student.attributes.Prenom.charAt(0).toUpperCase() + student.attributes.Prenom.slice(1)}</b>
+              <b>{student.name.toUpperCase()}</b>
             </p>
-            <code>{student.attributes.Email}</code>
+            <code>{student.email}</code>
             <div className="more-infos">
-              <p>Promotion: <b>{student.attributes.Promotion}</b></p>
-              <p>Cursus: <b>{student.attributes.Cursus}</b></p>
+              <p>Cursus: <b>{student.cursus}</b></p>
+              <p>Année: <b>{student.year}</b></p>
             </div>
           </div>
         ))}
@@ -69,6 +83,5 @@ const App = () => {
     </div>
   );
 };
-
 
 export default App;

@@ -77,7 +77,7 @@ const Notes = () => {
         {filteredContents.length > 0 ? (
           filteredContents.map((content) => (
             content.name && content.name.trim() !== '' ? (
-              <Note title={content.name} author={content.author} link={`/single-note/${content.id}`} year={content.year} cursus={content.cursus} />
+              <Note title={content.name} author={content.author} link={`/single-note/${content.id}`} />
             ) : null
           ))
         ) : (
