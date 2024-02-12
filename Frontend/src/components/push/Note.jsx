@@ -2,14 +2,12 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
-const Note = ({title, description, auteur, annee, cursus, link}) => {
+const Note = ({title, description, author, link}) => {
   return (
     <div className={`comp-push-note`}>
       <h2>{title}</h2>
       <div className="tag">
-        <code className="auteur">{auteur}</code>
-        <code className="auteur">{annee}</code>
-        <code className="auteur">{cursus}</code>
+        <code className="auteur">{author}</code>
       </div>
       {description ? (
         <div className="description">

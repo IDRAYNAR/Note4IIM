@@ -1,20 +1,33 @@
 import React from "react";
-import axios from "axios";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Note from "../components/push/Note";
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.REACT_APP_SUPALINK;
+const supabaseAnonKey = process.env.REACT_APP_SUPAKEY;
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const Notes = () => {
-  const [error, setError] = useState(null);
-  const [lessons, setLessons] = useState([]);
+  const [contents, setContents] = useState([]);
   const [selectedPromotion, setSelectedPromotion] = useState("");
   const [selectedCursus, setSelectedCursus] = useState("");
-
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:1337/api/lessons?populate=*")
-      .then(({data}) => setLessons(data.data))
-      .catch((error) => setError(error));
+    const fetchContents = async () => {
+      let { data: N4I_Lessons, error } = await supabase
+        .from('N4I_Lessons')
+        .select('name, author, content');
+
+      if (error) {
+        setError(error);
+      } else {
+        setContents(N4I_Lessons);
+      }
+    };
+
+    fetchContents();
   }, []);
 
   const handlePromotionChange = (event) => {
@@ -25,13 +38,13 @@ const Notes = () => {
     setSelectedCursus(event.target.value);
   };
 
-  const filteredLessons = lessons.filter((lesson) => {
+  const filteredContents = contents.filter((content) => {
     const byPromotion =
       !selectedPromotion ||
-      lesson.attributes.Auteur.data.attributes.Promotion === selectedPromotion;
+      content.author.Promotion === selectedPromotion;
     const byCursus =
       !selectedCursus ||
-      lesson.attributes.Auteur.data.attributes.Cursus === selectedCursus;
+      content.author.Cursus === selectedCursus;
     return byPromotion && byCursus;
   });
 
@@ -61,11 +74,10 @@ const Notes = () => {
         </select>
       </div>
       <div className="card-container">
-        {filteredLessons.length > 0 ? (
-          filteredLessons.map((lesson) => (
-            lesson.attributes.Nom && lesson.attributes.Nom.trim() !== '' ? (
-              <Note title={lesson.attributes.Nom} auteur={lesson.attributes.Auteur.data.attributes.Prenom + ` ` + lesson.attributes.Auteur.data.attributes.Nom}
-                    link={`/single-note/${lesson.id}`} annee={lesson.attributes.Auteur.data.attributes.Promotion} cursus={lesson.attributes.Auteur.data.attributes.Cursus} />
+        {filteredContents.length > 0 ? (
+          filteredContents.map((content) => (
+            content.name && content.name.trim() !== '' ? (
+              <Note title={content.name} author={content.author} link={`/single-note/${content.id}`} year={content.year} cursus={content.cursus} />
             ) : null
           ))
         ) : (

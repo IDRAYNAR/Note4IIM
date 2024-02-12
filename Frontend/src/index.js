@@ -15,7 +15,6 @@ import Speakers from "./pages/Speakers.jsx";
 import Header from "./components/nav/Header.jsx";
 import Layout from "./components/Layout"
 import Profile  from "./pages/Profil.jsx";
-import axios from "axios";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div>
@@ -39,31 +38,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </React.StrictMode>
   </div>
 );
-
-var data = JSON.stringify({
-    "collection": "Lessons",
-    "database": "Note4IIM_Data",
-    "dataSource": "ClusterNoteIIM",
-    "projection": {
-        "_id": 1
-    }
-});
-            
-var config = {
-    method: 'post',
-    url: 'https://eu-central-1.aws.data.mongodb-api.com/app/data-azgpq/endpoint/data/v1/action/findOne',
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Request-Headers': '*',
-      'api-key': 'uTqnkTiYPHsR0azbCd2U4VucDd8kcltHq4MFpnwPgZ732FzhNRUDsLIPCeIDLenB',
-    },
-    data: data
-};
-            
-axios(config)
-    .then(function (response) {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
