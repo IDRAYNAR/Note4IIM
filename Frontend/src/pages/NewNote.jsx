@@ -90,7 +90,7 @@ const NewNote = () => {
 				<input className="input-title" type="text" id="nom" name="nom" />
 
 				<label htmlFor="notes">Notes</label>
-				<textarea className="input-notes" id="notes" name="notes"></textarea>
+				<textarea className="input-notes" id="notes" name="notes" />
 				<button className="update-btn" type="submit">
 					Créer un nouveau cours
 				</button>
