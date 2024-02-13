@@ -1,3 +1,4 @@
+/*
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = process.env.REACT_APP_SUPALINK;
@@ -41,4 +42,4 @@ export default async function etudiants() {
             </div>
         </div>
     );
-}
+}*/
