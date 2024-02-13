@@ -1,12 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Note from "../components/push/Note";
-import { createClient } from '@supabase/supabase-js'
-
-const supabaseUrl = process.env.REACT_APP_SUPALINK;
-const supabaseAnonKey = process.env.REACT_APP_SUPAKEY;
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { supabase } from '../supabase';
 
 const Notes = () => {
   const [contents, setContents] = useState([]);
