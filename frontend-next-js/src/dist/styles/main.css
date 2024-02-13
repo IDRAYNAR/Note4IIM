@@ -1,0 +1,646 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+* body {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+* body .App {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+* body .App .has-padding {
+  padding: 0.5rem;
+}
+* body .App .is-title {
+  background-color: gray;
+}
+* body .App .lessonCard {
+  display: flex;
+  flex-direction: column;
+}
+* body .App .lessonCard .lessonContent {
+  border: 1px solid black;
+}
+* body .App .lessonCard .lessonContent ul {
+  padding: 0rem 1.5rem;
+}
+* body .App .noResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.wrapper.-large {
+  max-width: 1376px;
+}
+.wrapper.-medium {
+  max-width: 960px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.selectContainer {
+  gap: 20px;
+  display: flex;
+}
+.selectContainer select {
+  background: #ED7000;
+  color: #000000;
+  border: none;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 10px;
+  height: fit-content;
+  cursor: pointer;
+  outline: none;
+}
+
+code {
+  font-weight: bold;
+  background: rgba(237, 112, 0, 0.12);
+  color: #ED7000;
+  border-radius: 4px;
+  padding: 0.3em 0.4em;
+  width: fit-content;
+}
+
+.has-padding {
+  padding: 0.5rem;
+}
+
+.is-title {
+  background-color: gray;
+}
+
+ul {
+  padding: 0rem 1.5rem;
+}
+
+ol {
+  padding: 0rem 2.5rem;
+}
+
+hr {
+  width: 100%;
+  margin: 0.5rem 0rem;
+  border: 2px solid black;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+select {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+code {
+  font-family: monospace;
+  white-space: pre;
+  display: block;
+  max-width: 100%;
+  border-radius: 0.5rem;
+  line-height: 1.5;
+}
+
+.home > h1 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.home > .doc {
+  border-radius: 10px;
+  border: solid 1px #ED7000;
+  padding: 20px;
+  background-color: #202023;
+  margin-bottom: 30px;
+}
+.home > .doc > p:not(:last-child) {
+  margin-bottom: 5px;
+}
+.home > .card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.home > .card-container > .card {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #202023;
+  color: #FFFFFF;
+  border: none;
+  text-align: left;
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.notes h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.notes .selectContainer {
+  gap: 20px;
+  display: flex;
+}
+.notes .selectContainer select {
+  background: #ED7000;
+  color: #000000;
+  border: none;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 10px;
+  height: fit-content;
+  cursor: pointer;
+  outline: none;
+}
+.notes .card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+.notes .card-container .tag {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.notes .lessonCard {
+  display: flex;
+  flex-direction: column;
+}
+.notes .lessonContent {
+  border: 1px solid black;
+  max-height: 12.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.notes .nameAndButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.notes .nameAndButton > a {
+  text-decoration: none;
+  color: white;
+  padding-right: 1rem;
+}
+.notes .nameAndButton > a:hover {
+  color: black;
+  text-decoration: underline;
+}
+.notes .noResult {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.single-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+.single-note .lessonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.single-note .lessonContainer a {
+  color: #ED7000;
+  text-decoration: none;
+}
+.single-note .lessonContainer a:hover {
+  text-decoration: underline;
+}
+.single-note .lessonContainer code {
+  background: rgba(237, 112, 0, 0.12);
+  color: #ED7000;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+}
+.single-note .btn-edit {
+  background-color: #ED7000;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: fit-content;
+  color: #000000;
+  margin-right: auto;
+}
+.single-note .btn-edit:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+  transition: background 0.2s linear;
+}
+
+.edit-note h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.edit-note .form {
+  display: flex;
+  flex-direction: column;
+}
+.edit-note .form .input-title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: none;
+  background: #202023;
+  color: #FFFFFF;
+  outline: none;
+}
+.edit-note .form .input-notes {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: none;
+  background: #202023;
+  color: #FFFFFF;
+  outline: none;
+  height: 300px;
+  resize: none;
+}
+.edit-note .update-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: #ED7000;
+  color: #000000;
+  border-radius: 10px;
+  border: none;
+}
+.edit-note .update-btn:hover {
+  background: #FFFFFF;
+  color: #000000;
+  transition: background 0.2s linear;
+  cursor: pointer;
+}
+
+.new-note h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.new-note .form {
+  display: flex;
+  flex-direction: column;
+}
+.new-note .form .input-title {
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: none;
+  background: #202023;
+  color: #FFFFFF;
+  outline: none;
+}
+.new-note .form .input-notes {
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  border: none;
+  background: #202023;
+  color: #FFFFFF;
+  outline: none;
+  height: 300px;
+  resize: none;
+}
+.new-note .update-btn {
+  background-color: #ED7000;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: fit-content;
+  color: #000000;
+  margin-right: auto;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+.new-note .update-btn:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+  transition: background 0.2s linear;
+}
+
+.students {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.students .personListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.students .personListContainer .personCard {
+  background: #202023;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.students .personListContainer .personCard code {
+  font-size: 15px;
+}
+.students .personListContainer .personCard .more-infos {
+  display: flex;
+  gap: 50px;
+}
+
+.creditential {
+  max-width: 25rem;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+.creditential input {
+  margin-top: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  height: 2.5rem;
+  border: none;
+  background: #202023;
+  color: #FFFFFF;
+  outline: none;
+}
+.creditential .buttonContainer {
+  width: 100%;
+}
+.creditential .buttonContainer button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: #ED7000;
+  color: #000000;
+  border-radius: 10px;
+  border: none;
+}
+.creditential .buttonContainer button:hover {
+  background: #FFFFFF;
+  color: #000000;
+  transition: background 0.2s linear;
+  cursor: pointer;
+}
+.creditential .buttonContainer .disconnect {
+  background-color: red;
+}
+
+.profil {
+  max-width: 50rem;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+.profil h1 {
+  margin-bottom: 1rem;
+}
+.profil .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.profil .form .asideElement {
+  display: flex;
+  gap: 2.5rem;
+}
+.profil .form .asideElement div {
+  width: 100%;
+}
+.profil .form .has-gap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.profil .form input {
+  border-radius: 5px;
+  width: 100%;
+  height: 2.5rem;
+  border: none;
+  background: #202023;
+  color: #FFFFFF;
+  outline: none;
+}
+.profil .form .readOnly {
+  opacity: 0.75;
+}
+.profil .form button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: #ED7000;
+  color: #000000;
+  border-radius: 10px;
+  border: none;
+}
+.profil .form button:hover {
+  background: #FFFFFF;
+  color: #000000;
+  transition: background 0.2s linear;
+  cursor: pointer;
+}
+
+.comp-card {
+  border-radius: 10px;
+  padding: 20px;
+  background: #202023;
+  color: #FFFFFF;
+  border: solid 1px transparent;
+  text-align: left;
+  transition: background 0.2s linear, border 0.2s linear;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.comp-card > h3 {
+  transition: color 0.2s linear;
+}
+.comp-card > p {
+  margin-top: 10px;
+}
+.comp-card:hover {
+  background: #2f2f33;
+}
+.comp-card:hover > h3 {
+  color: #ED7000;
+}
+.comp-card.-portal {
+  background: #ED7000;
+  transition: opacity 0.2s linear;
+}
+.comp-card.-portal:hover {
+  box-shadow: 0 0 5px 5px whitesmoke;
+}
+.comp-card.-portal:hover > h3 {
+  color: #FFFFFF;
+}
+
+.page-layout {
+  padding: 120px 0 50px;
+}
+
+.comp-nav-header {
+  background: #000000;
+  position: fixed;
+  width: 100%;
+  z-index: 99999999;
+}
+.comp-nav-header ul {
+  padding: 25px;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.comp-nav-header ul .creditsButton {
+  display: flex;
+  gap: 2rem;
+}
+.comp-nav-header ul li {
+  display: inline-block;
+}
+.comp-nav-header ul li.logo {
+  margin-right: auto;
+}
+.comp-nav-header ul li.logo > a {
+  margin-right: auto;
+  border-radius: 50%;
+  background: #FFFFFF;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  transition: opacity 0.2s linear, box-shadow 0.2s linear;
+  box-shadow: none;
+}
+.comp-nav-header ul li.logo > a > img {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+.comp-nav-header ul li.logo > a:hover {
+  box-shadow: 0 0 10px 5px #ED7000;
+}
+.comp-nav-header ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s linear;
+}
+.comp-nav-header ul li a.new {
+  background: #ED7000;
+  color: #000000;
+  border-radius: 10px;
+  border: none;
+  transition: background 0.2s linear;
+}
+.comp-nav-header ul li a.new:hover {
+  background: #FFFFFF;
+  color: #000000;
+}
+.comp-nav-header ul li a:hover {
+  color: #ED7000;
+}
+
+.comp-push-note {
+  border-radius: 10px;
+  padding: 20px;
+  background: #202023;
+  color: #FFFFFF;
+  border: solid 1px transparent;
+  text-align: left;
+  transition: background 0.2s linear, border 0.2s linear;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.comp-push-note > h2 {
+  transition: color 0.2s linear;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+.comp-push-note > .auteur {
+  font-size: 0.8em;
+  font-weight: bold;
+  background: rgba(237, 112, 0, 0.12);
+  color: #ED7000;
+  border-radius: 4px;
+  padding: 0.3em 0.4em;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+.comp-push-note > .description {
+  margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100px;
+}
+.comp-push-note > .view {
+  background-color: #ED7000;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: fit-content;
+  color: #000000;
+}
+.comp-push-note > .view:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "";
+}
+.comp-push-note > .view:hover {
+  opacity: 0.8;
+  color: #000000;
+  transition: background 0.2s linear;
+}
+.comp-push-note:hover {
+  background: #2f2f33;
+}
+.comp-push-note:hover > h2 {
+  color: #ED7000;
+}
+
+/*# sourceMappingURL=main.css.map */
