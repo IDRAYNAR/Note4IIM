@@ -36,8 +36,9 @@ const Notes = () => {
 	const filteredContents = contents.filter((content) => {
 		const byPromotion =
 			!selectedPromotion || content.author.Promotion === selectedPromotion;
+
 		const byCursus =
-			!selectedCursus || content.author.Cursus === selectedCursus;
+			!selectedCursus || content.author.Promotion === selectedCursus;
 		return byPromotion && byCursus;
 	});
 
@@ -74,7 +75,7 @@ const Notes = () => {
 								title={content.name}
 								author={content.author}
 								link={`/single-note/${content.id}`}
-								year={content.year}
+								// year={content.year}
 								cursus={content.cursus}
 							/>
 						) : null
