@@ -40,10 +40,10 @@ const App = () => {
       <div className="selectContainer">
         <select value={selectedCursus} onChange={handleCursusChange}>
           <option value="">Tous les cursus</option>
-          <option value="Création & Design">Création & Design</option>
-          <option value="Développement Web">Développement Web</option>
-          <option value="Jeu vidéo">Jeu vidéo</option>
-          <option value="Communication Digital">Communication Digital</option>
+          <option value="Creative & Design">Création & Design</option>
+          <option value="Développeur">Développement Web</option>
+          <option value="Jeu Video">Jeu vidéo</option>
+          <option value="Communication">Communication Digital</option>
           <option value="Animation 3D">Animation 3D</option>
         </select>
       </div>
