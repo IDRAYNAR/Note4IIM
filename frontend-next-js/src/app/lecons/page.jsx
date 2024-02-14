@@ -1,5 +1,4 @@
 "use client"
-//import axios from "axios";
 import {useEffect, useState} from "react";
 import {supabase} from "@/supabase";
 import Note from "@/app/components/note";
@@ -10,19 +9,11 @@ const lecons = () => {
     const [selectedPromotion, setSelectedPromotion] = useState("");
     const [selectedCursus, setSelectedCursus] = useState("");
 
-
-    /*useEffect(() => {
-        axios
-                .get("http://localhost:1337/api/lessons?populate=*")
-                .then(({data}) => setLessons(data.data))
-                .catch((error) => setError(error));
-    }, []);*/
-
     useEffect(() => {
         const fetchLessons = async () => {
             let { data: lessonsData, error } = await supabase
                     .from('N4I_Lessons')
-                    .select('name, content, author');
+                    .select('id, name, author');
 
             console.log(lessonsData);
 
@@ -83,8 +74,8 @@ const lecons = () => {
                     {filteredLessons.length > 0 ? (
                             filteredLessons.map((lesson) => (
                                     lesson.name && lesson.name.trim() !== '' ? (
-                                            <Note title={lesson.name} auteur={lesson.author}
-                                                  link={`/single-note/${lesson.id}`} />
+                                            <Note name={lesson.name} author={lesson.author}
+                                                  link={`/lecon/${lesson.id}`} />
                                     ) : null
                             ))
                     ) : (
