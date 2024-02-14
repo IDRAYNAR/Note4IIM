@@ -1,7 +1,7 @@
 "use client"
 import {useEffect, useState} from "react";
 import {supabase} from "@/supabase";
-import Note from "@/app/components/note";
+import Note from "@/app/components/Note";
 
 const notes = () => {
     const [error, setError] = useState(null);

@@ -1,6 +1,7 @@
 "use client"
 
-import Card from "./components/card";
+import Card from "./components/Card";
+
 
 export default function page() {
   return (

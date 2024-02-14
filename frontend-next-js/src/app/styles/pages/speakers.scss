@@ -1,0 +1,22 @@
+.speakers .personListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .speakers .personListContainer .personCard {
+    background: #202023;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  .speakers .personListContainer .personCard code {
+    font-size: 15px;
+  }
+  .speakers .personListContainer .personCard .more-infos {
+    display: flex;
+    gap: 50px;
+  }
