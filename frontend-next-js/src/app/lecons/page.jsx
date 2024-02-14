@@ -2,7 +2,7 @@
 //import axios from "axios";
 import {useEffect, useState} from "react";
 import {supabase} from "@/supabase";
-import Note from "@/app/components/note";
+import Note from "@/app/components/Note";
 
 const lecons = () => {
     const [error, setError] = useState(null);

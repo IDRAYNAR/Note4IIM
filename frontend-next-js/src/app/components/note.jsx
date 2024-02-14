@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import ReactMarkdown from "react-markdown";
 
-const note = ({name, content, author, link}) => {
+const Note = ({name, content, author, link}) => {
     return (
             <div className={`comp-push-note`}>
                 <h2>{name}</h2>
@@ -19,4 +19,4 @@ const note = ({name, content, author, link}) => {
     );
 };
 
-export default note;
+export default Note;

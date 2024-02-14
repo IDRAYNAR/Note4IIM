@@ -4,27 +4,27 @@
   "private": true,
   "scripts": {
     "dev:next": "next dev",
-    "watch:css": "watch-sass src/styles/main.scss src/dist/styles:main.css",
-    "dev": "concurrently \"npm:watch:css\" \"npm:dev:next\"",
+    "watch:css": "sass --watch src/app/styles/main.scss:src/dist/styles/main.css",
+    "dev": "concurrently \"npm run watch:css\" \"npm run dev:next\"",
     "build": "next build",
     "lint": "next lint",
-    "start": "concurrently \"npm run start-js\" \"npm run watch-sass\"",
+    "start": "concurrently \"npx next dev\" \"npm run watch:css\"",
     "start-js": "react-scripts start"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.4",
     "axios": "^1.6.7",
+    "concurrently": "^8.2.2",
     "next": "14.1.0",
     "react": "^18",
-    "react-markdown": "^9.0.1",
     "react-dom": "^18",
+    "react-markdown": "^9.0.1",
     "sass": "^1.70.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "postcss": "^8"
   }
 }
