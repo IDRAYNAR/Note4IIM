@@ -37,6 +37,7 @@ const App = () => {
 
 	return (
 		<div className="App students wrapper">
+			<h1>Professeurs</h1>
 			<div className="selectContainer">
 				<select value={selectedCursus} onChange={handleCursusChange}>
 					<option value="">Tous les cursus</option>

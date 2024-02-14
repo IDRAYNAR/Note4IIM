@@ -3,6 +3,11 @@
 	flex-direction: column;
 	gap: 1rem;
 
+	h1 {
+		text-align: left;
+		margin-bottom: 1rem;
+	}
+
 	.personListContainer {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
