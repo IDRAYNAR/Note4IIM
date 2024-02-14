@@ -1,39 +1,28 @@
 "use client"
-//import axios from "axios";
 import {useEffect, useState} from "react";
 import {supabase} from "@/supabase";
 import Note from "@/app/components/Note";
 
-const lecons = () => {
+const notes = () => {
     const [error, setError] = useState(null);
-    const [lessons, setLessons] = useState([]);
+    const [notes, setNotes] = useState([]);
     const [selectedPromotion, setSelectedPromotion] = useState("");
     const [selectedCursus, setSelectedCursus] = useState("");
 
-
-    /*useEffect(() => {
-        axios
-                .get("http://localhost:1337/api/lessons?populate=*")
-                .then(({data}) => setLessons(data.data))
-                .catch((error) => setError(error));
-    }, []);*/
-
     useEffect(() => {
-        const fetchLessons = async () => {
-            let { data: lessonsData, error } = await supabase
+        const fetchNotes = async () => {
+            let { data: notesData, error } = await supabase
                     .from('N4I_Lessons')
-                    .select('name, content, author');
-
-            console.log(lessonsData);
+                    .select('id, name, author');
 
             if (error) {
                 setError(error);
             } else {
-                setLessons(lessonsData);
+                setNotes(notesData);
             }
         };
 
-        fetchLessons().then(r => r);
+        fetchNotes().then(r => r);
     }, []);
 
     const handlePromotionChange = (event) => {
@@ -44,13 +33,13 @@ const lecons = () => {
         setSelectedCursus(event.target.value);
     };
 
-    const filteredLessons = lessons.filter((lesson) => {
+    const filteredNotes = notes.filter((note) => {
         const byPromotion =
                 !selectedPromotion ||
-                lesson.attributes.Auteur.data.attributes.Promotion === selectedPromotion;
+                note.attributes.Auteur.data.attributes.Promotion === selectedPromotion;
         const byCursus =
                 !selectedCursus ||
-                lesson.attributes.Auteur.data.attributes.Cursus === selectedCursus;
+                note.attributes.Auteur.data.attributes.Cursus === selectedCursus;
         return byPromotion && byCursus;
     });
 
@@ -80,11 +69,16 @@ const lecons = () => {
                     </select>
                 </div>
                 <div className="card-container">
-                    {filteredLessons.length > 0 ? (
-                            filteredLessons.map((lesson) => (
-                                    lesson.name && lesson.name.trim() !== '' ? (
-                                            <Note title={lesson.name} auteur={lesson.author}
-                                                  link={`/single-note/${lesson.id}`} />
+                    {filteredNotes.length > 0 ? (
+                            filteredNotes.map((note) => (
+                                    note.name && note.name.trim() !== '' ? (
+                                            <Note name={note.name} author={note.author}
+                                                  link={{
+                                                      pathname: '/single-note',
+                                                      query: {
+                                                          id: note.id,
+                                                      },
+                                                  }} />
                                     ) : null
                             ))
                     ) : (
@@ -95,4 +89,4 @@ const lecons = () => {
     );
 }
 
-export default lecons;
+export default notes;
