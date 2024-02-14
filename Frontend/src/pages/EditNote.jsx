@@ -61,20 +61,9 @@ const EditNote = () => {
 			<h1>Modifier la note</h1>
 			<form className="form" onSubmit={(event) => updateLesson(event, id)}>
 				<label htmlFor="nom">Nom du cours</label>
-				<input
-					className="input-title"
-					type="text"
-					id="nom"
-					name="nom"
-					defaultValue={note?.Nom}
-				/>
-
+				<input className="input-title" type="text" id="nom" name="nom" />
 				<label htmlFor="notes">Notes</label>
-				<textarea
-					className="input-notes"
-					id="notes"
-					name="notes"
-					defaultValue={note?.Notes}></textarea>
+				<textarea className="input-notes" id="notes" name="notes"></textarea>
 				<button className="update-btn" type="submit">
 					Mettre à jour
 				</button>
