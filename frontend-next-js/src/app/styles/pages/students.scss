@@ -1,0 +1,31 @@
+.students {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .personListContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .personCard {
+            background: $color-grey;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem;
+            border: 1px solid black;
+            border-radius: 10px;
+
+            code {
+                font-size: 15px;
+            }
+
+            .more-infos {
+                display: flex;
+                gap: 50px;
+            }
+        }
+    }
+}

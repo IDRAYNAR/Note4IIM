@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev:next": "next dev",
+    "watch:css": "watch-sass src/styles/main.scss src/dist/styles:main.css",
+    "dev": "concurrently \"npm:watch:css\" \"npm:dev:next\"",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start": "concurrently \"npm run start-js\" \"npm run watch-sass\"",
+    "start-js": "react-scripts start"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.4",
