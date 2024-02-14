@@ -3,28 +3,26 @@ import {useEffect, useState} from "react";
 import {supabase} from "@/supabase";
 import Note from "@/app/components/note";
 
-const lecons = () => {
+const notes = () => {
     const [error, setError] = useState(null);
-    const [lessons, setLessons] = useState([]);
+    const [notes, setNotes] = useState([]);
     const [selectedPromotion, setSelectedPromotion] = useState("");
     const [selectedCursus, setSelectedCursus] = useState("");
 
     useEffect(() => {
-        const fetchLessons = async () => {
-            let { data: lessonsData, error } = await supabase
+        const fetchNotes = async () => {
+            let { data: notesData, error } = await supabase
                     .from('N4I_Lessons')
                     .select('id, name, author');
-
-            console.log(lessonsData);
 
             if (error) {
                 setError(error);
             } else {
-                setLessons(lessonsData);
+                setNotes(notesData);
             }
         };
 
-        fetchLessons().then(r => r);
+        fetchNotes().then(r => r);
     }, []);
 
     const handlePromotionChange = (event) => {
@@ -35,13 +33,13 @@ const lecons = () => {
         setSelectedCursus(event.target.value);
     };
 
-    const filteredLessons = lessons.filter((lesson) => {
+    const filteredNotes = notes.filter((note) => {
         const byPromotion =
                 !selectedPromotion ||
-                lesson.attributes.Auteur.data.attributes.Promotion === selectedPromotion;
+                note.attributes.Auteur.data.attributes.Promotion === selectedPromotion;
         const byCursus =
                 !selectedCursus ||
-                lesson.attributes.Auteur.data.attributes.Cursus === selectedCursus;
+                note.attributes.Auteur.data.attributes.Cursus === selectedCursus;
         return byPromotion && byCursus;
     });
 
@@ -71,11 +69,16 @@ const lecons = () => {
                     </select>
                 </div>
                 <div className="card-container">
-                    {filteredLessons.length > 0 ? (
-                            filteredLessons.map((lesson) => (
-                                    lesson.name && lesson.name.trim() !== '' ? (
-                                            <Note name={lesson.name} author={lesson.author}
-                                                  link={`/lecon/${lesson.id}`} />
+                    {filteredNotes.length > 0 ? (
+                            filteredNotes.map((note) => (
+                                    note.name && note.name.trim() !== '' ? (
+                                            <Note name={note.name} author={note.author}
+                                                  link={{
+                                                      pathname: '/single-note',
+                                                      query: {
+                                                          id: note.id,
+                                                      },
+                                                  }} />
                                     ) : null
                             ))
                     ) : (
@@ -86,4 +89,4 @@ const lecons = () => {
     );
 }
 
-export default lecons;
+export default notes;
