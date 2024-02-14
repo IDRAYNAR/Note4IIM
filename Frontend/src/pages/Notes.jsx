@@ -51,7 +51,7 @@ const Notes = () => {
 			<h1>Notes</h1>
 			<div className="selectContainer">
 				<select value={selectedPromotion} onChange={handlePromotionChange}>
-					<option value="">Promotion</option>
+					<option value="">Toutes les Promotions</option>
 					<option value="1">A1</option>
 					<option value="2">A2</option>
 					<option value="3">A3</option>
@@ -59,11 +59,11 @@ const Notes = () => {
 					<option value="5">A5</option>
 				</select>
 				<select value={selectedCursus} onChange={handleCursusChange}>
-					<option value="">Cursus</option>
-					<option value="Creative & Design">Création & Design</option>
-					<option value="Développeur">Développement Web</option>
-					<option value="Jeu Video">Jeu vidéo</option>
-					<option value="Communication">Communication Digital</option>
+					<option value="">Tous les cursus</option>
+					<option value="Création & Design">Création & Design</option>
+					<option value="Développement Web">Développement Web</option>
+					<option value="Jeu vidéo">Jeu vidéo</option>
+					<option value="Communication Digital">Communication Digital</option>
 					<option value="Animation 3D">Animation 3D</option>
 				</select>
 			</div>
