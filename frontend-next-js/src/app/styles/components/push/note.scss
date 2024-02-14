@@ -1,0 +1,70 @@
+.comp-push-note {
+    border-radius: 10px;
+    padding: 20px;
+    background: $color-grey;
+    color: $color-white;
+    border: solid 1px transparent;
+    text-align: left;
+    transition: background .2s linear, border .2s linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    > h2 {
+        transition: color .2s linear;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+
+    > .auteur {
+        font-size: 0.8em;
+        font-weight: bold;
+        background: $color-orange-12;
+        color: $color-orange;
+        border-radius: 4px;
+        padding: 0.3em 0.4em;
+        width: fit-content;
+        margin-bottom: 10px;
+    }
+
+    > .description {
+        margin-top: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 100px;
+    }
+
+    > .view {
+        background-color: $color-orange;
+        padding: 10px 20px;
+        border-radius: 10px;
+        width: fit-content;
+        color: $color-black;
+
+        &:before {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            content: "";
+        }
+
+        &:hover {
+            opacity: 0.8;
+            color: $color-black;
+            transition: background 0.2s linear;
+        }
+    }
+
+    &:hover {
+        background: $color-light-grey;
+
+        > h2 {
+            color: $color-orange;
+        }
+    }
+}
