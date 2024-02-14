@@ -35,7 +35,8 @@ const Notes = () => {
 
 	const filteredContents = contents.filter((content) => {
 		const byPromotion =
-			!selectedPromotion || content.author.Promotion === selectedPromotion;
+			!selectedPromotion || content.year.toString() === selectedPromotion;
+		console.log(content, selectedPromotion);
 
 		const byCursus =
 			!selectedCursus || content.author.Promotion === selectedCursus;
@@ -52,11 +53,11 @@ const Notes = () => {
 			<div className="selectContainer">
 				<select value={selectedPromotion} onChange={handlePromotionChange}>
 					<option value="">Toutes les promotions</option>
-					<option value="A1">A1</option>
-					<option value="A2">A2</option>
-					<option value="A3">A3</option>
-					<option value="A4">A4</option>
-					<option value="A5">A5</option>
+					<option value="1">A1</option>
+					<option value="2">A2</option>
+					<option value="3">A3</option>
+					<option value="4">A4</option>
+					<option value="5">A5</option>
 				</select>
 				<select value={selectedCursus} onChange={handleCursusChange}>
 					<option value="">Tous les cursus</option>
