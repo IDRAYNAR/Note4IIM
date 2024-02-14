@@ -13,7 +13,7 @@ const Notes = () => {
 		const fetchContents = async () => {
 			let { data: N4I_Lessons, error } = await supabase
 				.from("N4I_Lessons")
-				.select("id, name, author, content, year");
+				.select("id, name, author, content, year, cursus");
 
 			if (error) {
 				setError(error);
@@ -36,10 +36,9 @@ const Notes = () => {
 	const filteredContents = contents.filter((content) => {
 		const byPromotion =
 			!selectedPromotion || content.year.toString() === selectedPromotion;
-		console.log(content, selectedPromotion);
 
-		const byCursus =
-			!selectedCursus || content.author.Promotion === selectedCursus;
+		const byCursus = !selectedCursus || content.cursus === selectedCursus;
+		console.log(content);
 		return byPromotion && byCursus;
 	});
 
@@ -61,11 +60,11 @@ const Notes = () => {
 				</select>
 				<select value={selectedCursus} onChange={handleCursusChange}>
 					<option value="">Tous les cursus</option>
-          <option value="Creative & Design">Création & Design</option>
-          <option value="Développeur">Développement Web</option>
-          <option value="Jeu Video">Jeu vidéo</option>
-          <option value="Communication">Communication Digital</option>
-          <option value="Animation 3D">Animation 3D</option>
+					<option value="Creative & Design">Création & Design</option>
+					<option value="Développeur">Développement Web</option>
+					<option value="Jeu Video">Jeu vidéo</option>
+					<option value="Communication">Communication Digital</option>
+					<option value="Animation 3D">Animation 3D</option>
 				</select>
 			</div>
 			<div className="card-container">
@@ -76,7 +75,7 @@ const Notes = () => {
 								title={content.name}
 								author={content.author}
 								link={`/single-note/${content.id}`}
-								year={content.year}
+								year={content.year.toString()}
 								cursus={content.cursus}
 							/>
 						) : null
