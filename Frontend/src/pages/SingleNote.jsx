@@ -36,9 +36,12 @@ const SingleNote = () => {
 	return (
 		<div className="containerElement wrapper -medium single-note">
 			<h1>{note.name}</h1>
+			<h4 className="noteAuthor">
+				<p>Noté par </p>
+				<code>{note.author}</code>
+			</h4>
 			<hr />
 			<div className="lessonContainer">
-				<h3><code><u>Noté par:</u> <ReactMarkdown children={note.author} /></code></h3>
 				<ReactMarkdown children={note.content} />
 			</div>
 			<hr />
