@@ -38,7 +38,7 @@ const Notes = () => {
 			!selectedPromotion || content.year.toString() === selectedPromotion;
 
 		const byCursus = !selectedCursus || content.cursus === selectedCursus;
-		console.log(content);
+
 		return byPromotion && byCursus;
 	});
 
@@ -47,7 +47,7 @@ const Notes = () => {
 	}
 
 	return (
-		<div className="notes wrapper -medium">
+		<div className="notes wrapper ">
 			<h1>Toutes les notes</h1>
 			<div className="selectContainer">
 				<select value={selectedPromotion} onChange={handlePromotionChange}>
