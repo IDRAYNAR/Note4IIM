@@ -6,10 +6,6 @@
   background-color: #000000;
   color: #FFFFFF;
 }
-* body .page-layout h1 {
-  text-align: center;
-  margin-bottom: 10px;
-}
 * body .App {
   display: flex;
   flex-direction: column;
@@ -29,7 +25,7 @@
   border: 1px solid black;
 }
 * body .App .lessonCard .lessonContent ul {
-  padding: 0 1.5rem;
+  padding: 0rem 1.5rem;
 }
 * body .App .noResult {
   display: flex;
@@ -140,7 +136,7 @@ code {
 }
 .home > .card-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
 }
 .home > .card-container > .card {
@@ -158,7 +154,7 @@ code {
   gap: 1rem;
 }
 .notes h1 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 1rem;
 }
 .notes .selectContainer {
@@ -178,8 +174,8 @@ code {
 }
 .notes .card-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
   margin-top: 30px;
 }
 .notes .card-container .tag {
@@ -220,7 +216,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   box-sizing: border-box;
   gap: 1rem;
 }
@@ -259,7 +255,7 @@ code {
 }
 
 .edit-note h1 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 50px;
 }
 .edit-note .form {
@@ -354,10 +350,15 @@ code {
   flex-direction: column;
   gap: 1rem;
 }
+.students h1 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
 .students .personListContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 30px;
 }
 .students .personListContainer .personCard {
   background: #202023;
@@ -704,7 +705,6 @@ code {
 }
 .comp-push-note:hover {
   background: #2f2f33;
-  cursor: pointer;
 }
 .comp-push-note:hover > h2 {
   color: #ED7000;
