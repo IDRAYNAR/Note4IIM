@@ -17,10 +17,10 @@ export default function page() {
 					<strong style={{ fontSize: "larger", color: "#ED7000" }}>
 						Note4IIM
 					</strong>
-					, n'importe quel etudiant de l'etablissement, si connecté peut acceder
-					aux differents cours des differentes années (de 1 à 5) et des
-					differents cursus. Les professeurs ont également accès à toutes les
-					informations concernant les cours et les notes des élèves.
+					, n'importe quel etudiant de l'etablissement, peut accéder
+					aux differents cours des differentes promotions (de 1 à 5) et des
+					differents cursus. Les intervenants ont également accès à toutes les
+					informations concernant les notes des élèves.
 				</p>
 			</div>
 			<div className="card-container">
