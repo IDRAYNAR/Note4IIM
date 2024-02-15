@@ -36,7 +36,7 @@ const NewNote = () => {
   }, [redirect, lessonId]);
 
   if (error) {
-    return <div>Une erreur s'est produite : {error.message}</div>;
+    return <div>Une erreur s&apos;est produite : {error.message}</div>;
   }
 
   return (

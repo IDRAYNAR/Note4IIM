@@ -1,44 +1,47 @@
 "use client"
 
-import React from "react";
-import {useSearchParams} from "next/navigation";
-import {supabase} from "@/supabase";
-import {useEffect, useState} from "react";
-import {useRouter} from 'next/navigation';
-
+import React, { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { supabase } from "@/supabase";
+import { useEffect, useState } from "react";
+import { useRouter } from 'next/navigation';
 
 const EditNote = () => {
-
-    const router = useRouter(); // Add this line
+    const router = useRouter();
 
     const [note, setNote] = useState(null);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    const searchParams = useSearchParams();
-    const id = searchParams.get("id");
 
-    useEffect(() => {
-        const fetchNote = async () => {
-            let {data, error} = await supabase
+    const WrapperComponent = () => {
+        const searchParams = useSearchParams();
+        const id = searchParams.get("id");
+
+        useEffect(() => {
+            const fetchNote = async () => {
+                let { data, error } = await supabase
                     .from('N4I_Lessons')
                     .select('*')
                     .eq('id', id)
 
-            if (error) {
-                console.error("Error fetching note:", error)
-            } else {
-                if (data && data.length > 0) {
-                    setNote(data[0]);
-                    setTitle(data[0].name);
-                    setContent(data[0].content);
+                if (error) {
+                    console.error("Error fetching note:", error)
                 } else {
-                    console.error("No note found with id:", id)
+                    if (data && data.length > 0) {
+                        setNote(data[0]);
+                        setTitle(data[0].name);
+                        setContent(data[0].content);
+                    } else {
+                        console.error("No note found with id:", id)
+                    }
                 }
             }
-        }
 
-        fetchNote().then(r => r)
-    }, [id]);
+            fetchNote().then(r => r)
+        }, [id]);
+
+        return null;
+    };
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
@@ -51,18 +54,18 @@ const EditNote = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const {error} = await supabase
-                .from('N4I_Lessons')
-                .update({name: title, content})
-                .eq('id', id);
+        const { error } = await supabase
+            .from('N4I_Lessons')
+            .update({ name: title, content })
+            .eq('id', id);
 
         if (error) {
             console.error("Error updating note:", error);
         } else {
-            const {data, error} = await supabase
-                    .from('N4I_Lessons')
-                    .select('*')
-                    .eq('id', id);
+            const { data, error } = await supabase
+                .from('N4I_Lessons')
+                .select('*')
+                .eq('id', id);
 
             if (error) {
                 console.error("Error fetching updated note:", error);
@@ -78,19 +81,22 @@ const EditNote = () => {
     }
 
     return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <WrapperComponent />
             <div className="edit-note wrapper -medium">
-                <h1>Page d'édition d'une note</h1>
+                <h1>Page d&apos;édition d&apos;une note</h1>
                 <form className="form" onSubmit={handleSubmit}>
                     <label htmlFor="nom">Nom du cours</label>
                     <input className="input-title" type="text" id="title" name="title" defaultValue={note.name}
-                           onChange={handleTitleChange}/>
+                        onChange={handleTitleChange} />
 
                     <label htmlFor="notes">Notes</label>
                     <textarea className="input-notes" id="notes" name="notes" defaultValue={note.content}
-                              onChange={handleContentChange}/>
+                        onChange={handleContentChange} />
                     <button className="update-btn" type="submit">Mettre à jour</button>
                 </form>
             </div>
+        </Suspense>
     );
 }
 

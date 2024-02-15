@@ -8,8 +8,8 @@ export default function page() {
     <div className="home wrapper -medium">
       <h1>Bienvenue sur <strong style={{ fontSize: 'larger', color: '#ED7000' }}>Note4IIM</strong></h1>
       <div className="doc">
-        <p>Grâce à <strong style={{ fontSize: 'larger', color: '#ED7000' }}>Note4IIM</strong>, n'importe quel etudiant
-          de l'etablissement, si connecté peut acceder aux differents cours des differentes années (de 1 à 5) et des
+        <p>Grâce à <strong style={{ fontSize: 'larger', color: '#ED7000' }}>Note4IIM</strong>, n&apos;importe quel etudiant
+          de l&apos;etablissement, si connecté peut acceder aux differents cours des differentes années (de 1 à 5) et des
           differents cursus. Les professeurs ont également accès à toutes les informations concernant les cours et les
           notes des élèves.</p>
       </div>

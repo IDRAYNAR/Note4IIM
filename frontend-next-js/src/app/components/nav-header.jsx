@@ -9,8 +9,7 @@ const NavHeader = ({isLoggedIn, handleSignOut}) => {
                     <li className="logo">
                         <Link href="/" legacyBehavior>
                             <a>
-                                <img src="https://file.diplomeo-static.com/file/00/00/02/10/21010.svg"
-                                     alt="Logo"/>
+                                <img src="https://file.diplomeo-static.com/file/00/00/02/10/21010.svg" alt="Logo"/>
                             </a>
                         </Link>
                     </li>
