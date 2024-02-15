@@ -53,7 +53,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       <h1>Connexion</h1>
       <form onSubmit={handleLogin}>
         <label>Email</label>
