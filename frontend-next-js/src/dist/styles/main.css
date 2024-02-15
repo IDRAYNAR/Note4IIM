@@ -748,6 +748,9 @@ body {
   color: #000000;
 }
 .comp-nav-header ul li a:hover {
+  font-weight: bold;
+  transform: scale(1.05);
+  transition: transform 0.2s linear;
   color: #ED7000;
 }
 

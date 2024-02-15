@@ -73,6 +73,9 @@
                 }
 
                 &:hover {
+                    font-weight: bold;
+                    transform: scale(1.05);
+                    transition: transform 0.2s linear;
                     color: $color-orange;
                 }
             }
