@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import { supabase } from '../../supabase';
+import Speaker from "@/app/components/speaker";
 
 
 const speakers = () => {
@@ -39,6 +40,7 @@ const speakers = () => {
 
     return (
         <div className="App speakers wrapper -medium">
+            <h1>Tous les intervenants</h1>
             <div className="selectContainer">
                 <select value={selectedcursus} onChange={handlecursusChange}>
                     <option value="">Tous les sujets</option>
@@ -51,15 +53,11 @@ const speakers = () => {
             </div>
             <div className="personListContainer">
                 {filteredSpeakers.map((speaker) => (
-                    <div key={speaker.email} className="personCard">
-                        <p>
-                            <b>{speaker.name.toUpperCase()}</b>
-                        </p>
-                        <code>{speaker.email}</code>
-                        <div className="more-infos">
-                            <p>cursus: <b>{speaker.cursus}</b></p>
-                        </div>
-                    </div>
+                    <Speaker
+                    name={speaker.name}
+                    cursus={speaker.cursus}
+                    email={speaker.email}
+                />
                 ))}
             </div>
         </div>

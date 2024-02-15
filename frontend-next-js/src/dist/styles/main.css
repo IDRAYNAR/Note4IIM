@@ -373,7 +373,45 @@ code {
 .students .personListContainer .personCard code {
   font-size: 15px;
 }
+.students .personListContainer .personCard .studentData {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 .students .personListContainer .personCard .more-infos {
+  display: flex;
+  gap: 50px;
+}
+
+.speakers {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.speakers h1 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.speakers .personListContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 30px;
+}
+.speakers .personListContainer .personCard {
+  background: #202023;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.speakers .personListContainer .personCard code {
+  font-size: 15px;
+}
+.speakers .personListContainer .personCard .more-infos {
   display: flex;
   gap: 50px;
 }

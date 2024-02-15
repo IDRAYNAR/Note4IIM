@@ -1,8 +1,10 @@
 "use client"
 import { useEffect, useState } from "react";
 import { supabase } from '@/supabase'
+import Note from "@/app/components/student";
+import Student from "@/app/components/student";
 
-const etudiants = () => {
+const students = () => {
     const [error, setError] = useState(null);
     const [students, setStudents] = useState([]);
     const [selectedYear, setSelectedYear] = useState("");
@@ -44,6 +46,7 @@ const etudiants = () => {
 
     return (
         <div className="App students wrapper -medium">
+            <h1>Tous les étudiants</h1>
             <div className="selectContainer">
                 <select value={selectedYear} onChange={handleYearChange}>
                     <option value="">Toutes les années</option>
@@ -64,20 +67,16 @@ const etudiants = () => {
             </div>
             <div className="personListContainer">
                 {filteredStudents.map((student) => (
-                    <div key={student.email} className="personCard">
-                        <p>
-                            <b>{student.name.toUpperCase()}</b>
-                        </p>
-                        <code>{student.email}</code>
-                        <div className="more-infos">
-                            <p>Cursus: <b>{student.cursus}</b></p>
-                            <p>Année: <b>{student.year}</b></p>
-                        </div>
-                    </div>
+                    <Student
+                        name={student.name}
+                        cursus={student.cursus}
+                        year={student.year}
+                        email={student.email}
+                    />
                 ))}
             </div>
         </div>
     );
 };
 
-export default etudiants;
+export default students;

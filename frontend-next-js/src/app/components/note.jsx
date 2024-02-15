@@ -9,9 +9,9 @@ const Note = ({ name, content, author, link, cursus, year }) => {
                 <h2>{name}</h2>
                 <div className="tag">
                     <code className="auteur">{author}</code>
-                    <code className="cursus">{cursus}</code>
                     <code className="year">A{year}</code>
                 </div>
+                <p className="cursus"><b>{cursus}</b></p>
                 {content ? (
                     <div className="description">
                         <ReactMarkdown children={description} />
