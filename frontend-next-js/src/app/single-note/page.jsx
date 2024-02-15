@@ -50,7 +50,9 @@ const singleNote = () => {
                     query: {
                         id: id,
                     },
-                }} legacyBehavior>Modifier la note</Link>
+                }} legacyBehavior>
+                    <a className="btn-edit">Modifier la note</a>
+                </Link>
             </div>
     );
 };

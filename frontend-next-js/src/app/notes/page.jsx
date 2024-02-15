@@ -36,10 +36,10 @@ const notes = () => {
     const filteredNotes = notes.filter((note) => {
         const byPromotion =
                 !selectedPromotion ||
-                note.attributes.Auteur.data.attributes.Promotion === selectedPromotion;
+                'A' + note.year === selectedPromotion;
         const byCursus =
                 !selectedCursus ||
-                note.attributes.Auteur.data.attributes.Cursus === selectedCursus;
+                note.cursus === selectedCursus;
         return byPromotion && byCursus;
     });
 
