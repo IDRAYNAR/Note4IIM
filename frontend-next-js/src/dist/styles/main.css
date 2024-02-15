@@ -476,6 +476,13 @@ body {
   color: #202023;
   font-weight: bold;
 }
+.students .personListContainer .personCard code a {
+  color: #202023;
+  text-decoration: none;
+}
+.students .personListContainer .personCard code:hover {
+  background-color: rgba(47, 47, 51, 0.2);
+}
 .students .personListContainer .personCard .studentData {
   display: flex;
   justify-content: space-between;
@@ -522,6 +529,13 @@ body {
   font-weight: lighter;
   background-color: rgba(47, 47, 51, 0.1);
   color: #202023;
+}
+.speakers .personListContainer .personCard code a {
+  color: #202023;
+  text-decoration: none;
+}
+.speakers .personListContainer .personCard code:hover {
+  background-color: rgba(47, 47, 51, 0.2);
 }
 .speakers .personListContainer .personCard .more-infos {
   display: flex;

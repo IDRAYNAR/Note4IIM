@@ -36,6 +36,15 @@
 				background-color: rgba(47, 47, 51, 0.1);
 				color: $color-grey;
 				font-weight: bold;
+
+				a {
+					color: $color-grey;
+					text-decoration: none;
+				}
+
+				&:hover {
+					background-color: rgba(47, 47, 51, 0.2);
+				}
 			}
 
 			.studentData {

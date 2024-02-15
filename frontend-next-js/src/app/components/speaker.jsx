@@ -11,7 +11,7 @@ const Speaker = ({ name, cursus, email }) => {
 			</p>
 
 			<div className="more-infos">
-				<code>{email}</code>
+			<code><a href={`mailto:${email}`}>{email}</a></code>
 			</div>
 		</div>
 	);

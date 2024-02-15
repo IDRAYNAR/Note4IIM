@@ -10,7 +10,7 @@ const Student = ({ name, email, cursus, year }) => {
 
 			<div className="more-infos">
 				<b>{cursus}</b>
-				<code>{email}</code>
+				<code><a href={`mailto:${email}`}>{email}</a></code>
 			</div>
 		</div>
 	);
