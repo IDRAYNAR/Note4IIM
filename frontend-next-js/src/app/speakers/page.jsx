@@ -42,7 +42,7 @@ const speakers = () => {
 			<h1>Intervenants</h1>
 			<div className="selectContainer">
 				<select value={selectedcursus} onChange={handlecursusChange}>
-					<option value="">Cursus</option>
+					<option value="">Tous les cursus</option>
 					<option value="Création & Design">Création & Design</option>
 					<option value="Développement Web">Développement Web</option>
 					<option value="Jeu vidéo">Jeu vidéo</option>

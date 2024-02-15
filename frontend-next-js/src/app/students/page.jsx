@@ -50,7 +50,7 @@ const students = () => {
 			<h1>Étudiants</h1>
 			<div className="selectContainer">
 				<select value={selectedYear} onChange={handleYearChange}>
-					<option value="">Années</option>
+					<option value="">Toutes les promotions</option>
 					<option value="1">A1</option>
 					<option value="2">A2</option>
 					<option value="3">A3</option>
@@ -58,7 +58,7 @@ const students = () => {
 					<option value="5">A5</option>
 				</select>
 				<select value={selectedCursus} onChange={handleCursusChange}>
-					<option value="">Cursus</option>
+					<option value="">Tous les cursus</option>
 					<option value="Création & Design">Création & Design</option>
 					<option value="Développement Web">Développement Web</option>
 					<option value="Jeu vidéo">Jeu vidéo</option>
