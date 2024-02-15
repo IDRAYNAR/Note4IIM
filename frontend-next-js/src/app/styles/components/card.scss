@@ -1,17 +1,23 @@
 .comp-card {
     border-radius: 10px;
     padding: 20px;
-    background: $color-grey;
     color: $color-white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     text-align: left;
-    transition: background .2s linear, border .2s linear;
+    transition:
+        background 0.2s linear,
+        border 0.2s linear;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.197);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+
     > h3 {
-        transition: color .2s linear;
+        transition: color 0.2s linear;
     }
 
     > p {
@@ -28,7 +34,7 @@
 
     &.-portal {
         background: $color-orange;
-        transition: opacity .2s linear;
+        transition: opacity 0.2s linear;
 
         &:hover {
             box-shadow: 0 0 5px 5px whitesmoke;
