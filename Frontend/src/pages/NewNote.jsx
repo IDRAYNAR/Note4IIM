@@ -6,6 +6,9 @@ const NewNote = () => {
 	const [error, setError] = useState(null);
 	const [redirect, setRedirect] = useState(false);
 	const [lessonId, setLessonId] = useState(null);
+	const [nom, setNom] = useState("");
+	const [notes, setNotes] = useState("");
+	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
 	const createNewLesson = async (event) => {
 		event.preventDefault();
@@ -23,7 +26,7 @@ const NewNote = () => {
 				console.error("Erreur lors de l'insertion :", error.message);
 				setError(error);
 			} else {
-				if (data && data[0] && data[0].id) {
+				if (data && data[0] && data[0].id && notes && nom) {
 					setLessonId(data[0].id);
 					setRedirect(true);
 				} else {
@@ -34,42 +37,11 @@ const NewNote = () => {
 			console.error("Error response from server:", error.message);
 			setError(error);
 		}
-
-		// axios
-		// 	.get("http://localhost:1337/api/students")
-		// 	.then((response) => {
-		// 		const students = response.data.data;
-		// 		const randomIndex = Math.floor(Math.random() * students.length);
-		// 		const selectedStudent = students[randomIndex];
-
-		// 		axios
-		// 			.post("http://localhost:1337/api/lessons", {
-		// 				data: {
-		// 					Nom: nom,
-		// 					Notes: notes,
-		// 					Auteur: selectedStudent.id,
-		// 				},
-		// 			})
-		// 			.then(({ data }) => {
-		// 				if (data && data.data && data.data.id) {
-		// 					setLessonId(data.data.id);
-		// 					setRedirect(true);
-		// 				} else {
-		// 					console.error("Received invalid lesson data");
-		// 				}
-		// 			})
-		// 			.catch((error) => {
-		// 				if (error.response) {
-		// 					console.error("Error response from server:", error.response.data);
-		// 				}
-		// 				setError(error);
-		// 			});
-		// 	})
-		// 	.catch((error) => {
-		// 		console.error("Error fetching student:", error);
-		// 		setError(error);
-		// 	});
 	};
+
+	useEffect(() => {
+		setIsButtonDisabled(!(nom && notes));
+	}, [nom, notes]);
 
 	useEffect(() => {
 		if (redirect && lessonId) {
@@ -82,17 +54,33 @@ const NewNote = () => {
 	}
 
 	return (
-		<div className="new-note wrapper -medium">
+		<div className="new-note wrapper">
 			<h1>Créer une nouvelle note</h1>
 
 			<form className="form" onSubmit={createNewLesson}>
 				<label htmlFor="nom">Nom du cours</label>
-				<input className="input-title" type="text" id="nom" name="nom" />
+				<input
+					className="input-title"
+					type="text"
+					id="nom"
+					name="nom"
+					value={nom}
+					onChange={(e) => setNom(e.target.value)}
+				/>
 
 				<label htmlFor="notes">Notes</label>
-				<textarea className="input-notes" id="notes" name="notes" />
-				<button className="update-btn" type="submit">
-					Créer un nouveau cours
+				<textarea
+					className="input-notes"
+					id="notes"
+					name="notes"
+					value={notes}
+					onChange={(e) => setNotes(e.target.value)}
+				/>
+				<button
+					className="update-btn"
+					type="submit"
+					disabled={isButtonDisabled}>
+					Créer
 				</button>
 			</form>
 		</div>
