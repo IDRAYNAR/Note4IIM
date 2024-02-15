@@ -1,11 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
-import { createClient } from '@supabase/supabase-js'; // Assurez-vous d'importer la fonction createClient depuis @supabase/supabase-js
-
-const supabaseUrl = 'https://lkhayewnehhxhqkckehs.supabase.co/';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxraGF5ZXduZWhoeGhxa2NrZWhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI4OTc5NTMsImV4cCI6MjAxODQ3Mzk1M30.fKfRK_Dmx4KZ39za2coUrQGBbLJkrCbK_YIKEBbEQ6U';
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey); // Initialisez le client Supabase directement
+import { supabase } from '../../supabase';
 
 const NewNote = () => {
   const [error, setError] = useState(null);
@@ -17,17 +12,17 @@ const NewNote = () => {
     const form = event.target;
     const name = form.nom.value;
     const content = form.notes.value;
-    const author = "loremp@test.com"; // Vous devrez remplacer ceci par l'auteur réel de la note.
-    const year = new Date().getFullYear(); // Vous pouvez obtenir l'année actuelle de cette façon.
+    const author = "loremp@test.com";
+    const year = "3";
+    const cursus = "Développement Web";
 
     try {
-      const { data, error } = await supabase.from('N4I_Lessons').insert([{ name, content, author, year }]);
+      const { error } = await supabase.from('N4I_Lessons').insert([{ name, content, author, year, cursus }]);
+
       if (error) {
         throw error;
-      }
-      if (data && data.length > 0) {
-        setLessonId(data[0].id); // Supposant que votre table a une colonne 'id' pour identifier chaque enregistrement.
-        setRedirect(true);
+      }else{
+        window.location.href = "/notes";
       }
     } catch (error) {
       setError(error);

@@ -13,7 +13,7 @@ const notes = () => {
         const fetchNotes = async () => {
             let { data: notesData, error } = await supabase
                     .from('N4I_Lessons')
-                    .select('id, name, author');
+                    .select('id, name, author, cursus, year');
 
             if (error) {
                 setError(error);
@@ -70,19 +70,26 @@ const notes = () => {
                 </div>
                 <div className="card-container">
                     {filteredNotes.length > 0 ? (
-                            filteredNotes.map((note) => (
-                                    note.name && note.name.trim() !== '' ? (
-                                            <Note name={note.name} author={note.author}
-                                                  link={{
-                                                      pathname: '/single-note',
-                                                      query: {
-                                                          id: note.id,
-                                                      },
-                                                  }} />
-                                    ) : null
+                        filteredNotes
+                            .sort((a, b) => b.id - a.id)
+                            .map((note) => (
+                                note.name && note.name.trim() !== '' ? (
+                                    <Note
+                                        name={note.name}
+                                        cursus={note.cursus}
+                                        year={note.year}
+                                        author={note.author}
+                                        link={{
+                                            pathname: '/single-note',
+                                            query: {
+                                                id: note.id,
+                                            },
+                                        }}
+                                    />
+                                ) : null
                             ))
                     ) : (
-                            <div className="noResult">Aucun résultat trouvé</div>
+                        <div className="noResult">Aucun résultat trouvé</div>
                     )}
                 </div>
             </div>

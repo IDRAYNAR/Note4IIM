@@ -62,6 +62,7 @@
 
     &:hover {
         background: $color-light-grey;
+        cursor: pointer;
 
         > h2 {
             color: $color-orange;

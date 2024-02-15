@@ -664,6 +664,7 @@ code {
 }
 .comp-push-note:hover {
   background: #2f2f33;
+  cursor: pointer;
 }
 .comp-push-note:hover > h2 {
   color: #ED7000;
