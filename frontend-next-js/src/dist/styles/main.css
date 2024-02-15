@@ -512,7 +512,6 @@ body {
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
-  cursor: pointer;
 }
 .speakers .personListContainer .personCard code {
   font-size: 12px;
@@ -525,9 +524,6 @@ body {
 .speakers .personListContainer .personCard .more-infos {
   display: flex;
   gap: 50px;
-}
-.speakers .personListContainer .personCard:hover {
-  background: rgba(255, 255, 255, 0.8);
 }
 
 .creditential {
