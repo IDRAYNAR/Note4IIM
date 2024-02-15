@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import React, { Suspense } from "react"; // Import Suspense
+import React, { Suspense } from "react";
 import {useSearchParams} from "next/navigation";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import {supabase} from "@/supabase";
+import { supabase } from "@/supabase";
 import { useEffect, useState } from "react";
 
 const SingleNoteContent = () => {
     const [note, setNote] = useState(null);
-    const [searchParams] = useSearchParams(); // Adjusted for destructuring
+    const [searchParams] = useSearchParams();
     const id = searchParams.get("id");
 
     useEffect(() => {
@@ -38,22 +38,25 @@ const SingleNoteContent = () => {
     }
 
     return (
-        <div className="containerElement wrapper -medium single-note">
-            <h1>{note.name}</h1>
-            <hr/>
-            <div className="lessonContainer">
-                <ReactMarkdown>{note.content}</ReactMarkdown>
-            </div>
-            <hr/>
-            <Link className="btn-edit" href={{
-                pathname: '/edit-note',
-                query: {
-                    id: id,
-                },
-            }} legacyBehavior>
-                <a className="btn-edit">Modifier la note</a>
-            </Link>
-        </div>
+        <div className="containerElement wrapper single-note">
+			<h1>{note.name}</h1>
+			<hr />
+			<div className="lessonContainer">
+				<ReactMarkdown children={note.content} />
+			</div>
+			<hr />
+			<Link
+				className="btn-edit"
+				href={{
+					pathname: "/edit-note",
+					query: {
+						id: id,
+					},
+				}}
+				legacyBehavior>
+				<a className="btn-edit">Modifier la note</a>
+			</Link>
+		</div>
     );
 };
 

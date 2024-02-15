@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
-import { supabase } from '../../supabase';
+import { supabase } from "../../supabase";
 
 const NewNote = () => {
   const [error, setError] = useState(null);
@@ -44,13 +44,15 @@ const NewNote = () => {
       <h1>Créer une nouvelle note</h1>
 
       <form className="form" onSubmit={createNewLesson}>
-        <label htmlFor="nom">Nom du cours</label>
-        <input className="input-title" type="text" id="nom" name="nom" />
+				<label htmlFor="nom">Nom du cours</label>
+				<input className="input-title" type="text" id="nom" name="nom" />
 
-        <label htmlFor="notes">Notes</label>
-        <textarea className="input-notes" id="notes" name="notes"></textarea>
-        <button className="update-btn" type="submit">Créer un nouveau cours</button>
-      </form>
+				<label htmlFor="notes">Notes</label>
+				<textarea className="input-notes" id="notes" name="notes"></textarea>
+				<button className="update-btn" type="submit">
+					Créer un nouveau cours
+				</button>
+			</form>
     </div>
   );
 };

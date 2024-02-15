@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
@@ -83,19 +83,32 @@ const EditNote = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <WrapperComponent />
-            <div className="edit-note wrapper -medium">
-                <h1>Page d&apos;édition d&apos;une note</h1>
-                <form className="form" onSubmit={handleSubmit}>
-                    <label htmlFor="nom">Nom du cours</label>
-                    <input className="input-title" type="text" id="title" name="title" defaultValue={note.name}
-                        onChange={handleTitleChange} />
+            <div className="edit-note wrapper">
+			<h1>Page d'édition d'une note</h1>
+			<form className="form" onSubmit={handleSubmit}>
+				<label htmlFor="nom">Nom du cours</label>
+				<input
+					className="input-title"
+					type="text"
+					id="title"
+					name="title"
+					defaultValue={note.name}
+					onChange={handleTitleChange}
+				/>
 
-                    <label htmlFor="notes">Notes</label>
-                    <textarea className="input-notes" id="notes" name="notes" defaultValue={note.content}
-                        onChange={handleContentChange} />
-                    <button className="update-btn" type="submit">Mettre à jour</button>
-                </form>
-            </div>
+				<label htmlFor="notes">Notes</label>
+				<textarea
+					className="input-notes"
+					id="notes"
+					name="notes"
+					defaultValue={note.content}
+					onChange={handleContentChange}
+				/>
+				<button className="update-btn" type="submit">
+					Mettre à jour
+				</button>
+			</form>
+		</div>
         </Suspense>
     );
 }
