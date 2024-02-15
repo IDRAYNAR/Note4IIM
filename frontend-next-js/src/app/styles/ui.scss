@@ -6,6 +6,11 @@
         background-color: $color-black;
         color: $color-white;
 
+        .page-layout h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
         .App {
             display: flex;
             flex-direction: column;

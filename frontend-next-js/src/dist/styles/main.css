@@ -6,6 +6,10 @@
   background-color: #000000;
   color: #FFFFFF;
 }
+* body .page-layout h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
 * body .App {
   display: flex;
   flex-direction: column;
@@ -499,6 +503,41 @@ code {
   gap: 50px;
 }
 
+.login > .form {
+  background-color: #202023;
+  border-radius: 20px;
+  max-width: 400px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px;
+}
+.login > .form > .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login > .form > .input-container > input {
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  background-color: #2f2f33 !important;
+}
+.login > .form > .submit-btn {
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  background-color: #ED7000;
+  cursor: pointer;
+  transition: opacity 0.2s linear;
+}
+.login > .form > .submit-btn:hover {
+  opacity: 0.8;
+}
+
 .comp-card {
   border-radius: 10px;
   padding: 20px;
@@ -586,12 +625,13 @@ code {
 }
 .comp-nav-header ul li a {
   display: block;
-  padding: 10px;
+  margin: 10px;
   text-decoration: none;
   color: white;
   transition: color 0.2s linear;
 }
 .comp-nav-header ul li a.new {
+  padding: 10px 15px;
   background: #ED7000;
   color: #000000;
   border-radius: 10px;

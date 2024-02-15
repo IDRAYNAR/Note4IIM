@@ -55,15 +55,19 @@ const Login = () => {
   return (
     <div className="login">
       <h1>Connexion</h1>
-      <form onSubmit={handleLogin}>
-        <label>Email</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <label>Password</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button type="submit">Se connecter</button>
+      <form className="form" onSubmit={handleLogin}>
+        <div className="input-container">
+          <label>Email</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+        </div>
+        <div className="input-container">
+          <label>Password</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        </div>
+        <button type="submit" className="submit-btn">Se connecter</button>
       </form>
     </div>
-  );
+);
 };
 
 export default Login;

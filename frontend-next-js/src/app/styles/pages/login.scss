@@ -1,3 +1,40 @@
 .login {
+    > .form {
+        background-color: $color-grey;
+        border-radius: 20px;
+        max-width: 400px;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 50px;
 
+        > .input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            > input {
+                border-radius: 10px;
+                padding: 10px 20px;
+                border: none;
+                outline: none;
+                background-color: $color-light-grey !important;
+            }
+        }
+
+        > .submit-btn {
+            border-radius: 10px;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            background-color: $color-orange;
+            cursor: pointer;
+            transition: opacity .2s linear;
+
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
 }
