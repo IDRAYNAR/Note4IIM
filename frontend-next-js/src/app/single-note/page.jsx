@@ -1,44 +1,44 @@
 "use client";
 
-import React from "react";
-import { useSearchParams } from "next/navigation";
+import React, { Suspense } from "react";
+import {useSearchParams} from "next/navigation";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { supabase } from "@/supabase";
 import { useEffect, useState } from "react";
 
-const singleNote = () => {
-	const [note, setNote] = useState(null);
-	const searchParams = useSearchParams();
-	const id = searchParams.get("id");
+const SingleNoteContent = () => {
+    const [note, setNote] = useState(null);
+    const [searchParams] = useSearchParams();
+    const id = searchParams.get("id");
 
-	useEffect(() => {
-		const fetchNote = async () => {
-			let { data, error } = await supabase
-				.from("N4I_Lessons")
-				.select("*")
-				.eq("id", id);
+    useEffect(() => {
+        const fetchNote = async () => {
+            let { data, error } = await supabase
+                    .from('N4I_Lessons')
+                    .select('*')
+                    .eq('id', id)
 
-			if (error) {
-				console.error("Error fetching note:", error);
-			} else {
-				if (data && data.length > 0) {
-					setNote(data[0]);
-				} else {
-					console.error("No note found with id:", id);
-				}
-			}
-		};
+            if (error) {
+                console.error("Error fetching note:", error);
+            } else {
+                if (data && data.length > 0) {
+                    setNote(data[0]);
+                } else {
+                    console.error("No note found with id:", id);
+                }
+            }
+        };
 
-		fetchNote().then((r) => r);
-	}, [id]);
+        fetchNote().then(r => r);
+    }, [id]);
 
-	if (!note) {
-		return <div>Loading...</div>;
-	}
+    if (!note) {
+        return <div>Loading...</div>;
+    }
 
-	return (
-		<div className="containerElement wrapper single-note">
+    return (
+        <div className="containerElement wrapper single-note">
 			<h1>{note.name}</h1>
 			<hr />
 			<div className="lessonContainer">
@@ -57,7 +57,15 @@ const singleNote = () => {
 				<a className="btn-edit">Modifier la note</a>
 			</Link>
 		</div>
-	);
+    );
+};
+
+const singleNote = () => {
+    return (
+        <Suspense fallback={<div>Loading note...</div>}>
+            <SingleNoteContent />
+        </Suspense>
+    );
 };
 
 export default singleNote;

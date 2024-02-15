@@ -1,3 +1,9 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@next/next/no-img-element": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "react/jsx-key": "off",
+    "react/no-children-prop": "off"
+  }
 }

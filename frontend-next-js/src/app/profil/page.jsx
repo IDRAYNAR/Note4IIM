@@ -7,7 +7,7 @@ const Profil = () => {
     const [selectedPromotion, setSelectedPromotion] = useState("");
     const [selectedCursus, setSelectedCursus] = useState("");
     const [userEmail, setUserEmail] = useState('');
-    const navigate = useNavigate();
+   /*  const navigate = useNavigate(); */
 
     useEffect(() => {
         const storedEmail = localStorage.getItem('signupEmail');

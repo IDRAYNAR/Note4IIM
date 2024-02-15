@@ -1,82 +1,89 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { supabase } from "@/supabase";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 const EditNote = () => {
-	const router = useRouter(); // Add this line
+    const router = useRouter();
 
-	const [note, setNote] = useState(null);
-	const [title, setTitle] = useState("");
-	const [content, setContent] = useState("");
-	const searchParams = useSearchParams();
-	const id = searchParams.get("id");
+    const [note, setNote] = useState(null);
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
 
-	useEffect(() => {
-		const fetchNote = async () => {
-			let { data, error } = await supabase
-				.from("N4I_Lessons")
-				.select("*")
-				.eq("id", id);
+    const WrapperComponent = () => {
+        const searchParams = useSearchParams();
+        const id = searchParams.get("id");
 
-			if (error) {
-				console.error("Error fetching note:", error);
-			} else {
-				if (data && data.length > 0) {
-					setNote(data[0]);
-					setTitle(data[0].name);
-					setContent(data[0].content);
-				} else {
-					console.error("No note found with id:", id);
-				}
-			}
-		};
+        useEffect(() => {
+            const fetchNote = async () => {
+                let { data, error } = await supabase
+                    .from('N4I_Lessons')
+                    .select('*')
+                    .eq('id', id)
 
-		fetchNote().then((r) => r);
-	}, [id]);
+                if (error) {
+                    console.error("Error fetching note:", error)
+                } else {
+                    if (data && data.length > 0) {
+                        setNote(data[0]);
+                        setTitle(data[0].name);
+                        setContent(data[0].content);
+                    } else {
+                        console.error("No note found with id:", id)
+                    }
+                }
+            }
 
-	const handleTitleChange = (event) => {
-		setTitle(event.target.value);
-	};
+            fetchNote().then(r => r)
+        }, [id]);
 
-	const handleContentChange = (event) => {
-		setContent(event.target.value);
-	};
+        return null;
+    };
 
-	const handleSubmit = async (event) => {
-		event.preventDefault();
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value);
+    };
 
-		const { error } = await supabase
-			.from("N4I_Lessons")
-			.update({ name: title, content })
-			.eq("id", id);
+    const handleContentChange = (event) => {
+        setContent(event.target.value);
+    };
 
-		if (error) {
-			console.error("Error updating note:", error);
-		} else {
-			const { data, error } = await supabase
-				.from("N4I_Lessons")
-				.select("*")
-				.eq("id", id);
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-			if (error) {
-				console.error("Error fetching updated note:", error);
-			} else {
-				setNote(data[0]);
-				router.push(`/single-note?id=${id}`);
-			}
-		}
-	};
+        const { error } = await supabase
+            .from('N4I_Lessons')
+            .update({ name: title, content })
+            .eq('id', id);
 
-	if (!note) {
-		return <div>Loading...</div>;
-	}
+        if (error) {
+            console.error("Error updating note:", error);
+        } else {
+            const { data, error } = await supabase
+                .from('N4I_Lessons')
+                .select('*')
+                .eq('id', id);
 
-	return (
-		<div className="edit-note wrapper">
+            if (error) {
+                console.error("Error fetching updated note:", error);
+            } else {
+                setNote(data[0]);
+                router.push(`/single-note?id=${id}`);
+            }
+        }
+    };
+
+    if (!note) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <WrapperComponent />
+            <div className="edit-note wrapper">
 			<h1>Page d'édition d'une note</h1>
 			<form className="form" onSubmit={handleSubmit}>
 				<label htmlFor="nom">Nom du cours</label>
@@ -102,7 +109,8 @@ const EditNote = () => {
 				</button>
 			</form>
 		</div>
-	);
-};
+        </Suspense>
+    );
+}
 
 export default EditNote;
