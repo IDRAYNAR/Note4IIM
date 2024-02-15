@@ -14,9 +14,9 @@ const NavHeader = ({isLoggedIn, handleSignOut}) => {
                         </Link>
                     </li>
                     <div>
-                        <li><Link href="/notes" legacyBehavior>Cours</Link></li>
+                        <li><Link href="/notes" legacyBehavior>Notes</Link></li>
                         <li><Link href="/students" legacyBehavior>Étudiants</Link></li>
-                        <li><Link href="/speakers" legacyBehavior>Professeurs</Link></li>
+                        <li><Link href="/speakers" legacyBehavior>Intervenants</Link></li>
                         <li><Link href="/new-note" legacyBehavior><a className="new">Créer une note</a></Link></li>
                     </div>
                 </ul>
