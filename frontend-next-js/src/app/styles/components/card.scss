@@ -1,0 +1,61 @@
+.comp-card {
+    border-radius: 10px;
+    padding: 20px;
+    color: $color-white;
+    text-align: left;
+    transition:
+        background 0.2s linear,
+        border 0.2s linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.197);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+
+    > h3 {
+        transition: color 0.2s linear;
+    }
+
+    > p {
+        margin-top: 10px;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s linear;
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.397);
+        
+        p {
+            text-shadow: 0 0 5px $color-orange;
+        }
+
+        > h3 {
+            color: $color-orange;
+        }
+    }
+
+    &.-portal {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.35);
+        transition: opacity 0.2s linear;
+        grid-column: span 3;
+
+        &:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s linear;
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.397);
+
+
+            > h3 {
+                color: $color-white;
+                text-shadow: 0 0 5px $color-orange;
+            }
+        }
+    }
+}
