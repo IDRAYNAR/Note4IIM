@@ -3,7 +3,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabase";
-import Speaker from "@/app/components/speaker";
+import Speaker from "../components/speaker";
 
 const speakers = () => {
 	const [error, setError] = useState(null);

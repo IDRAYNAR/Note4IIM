@@ -2,9 +2,9 @@
 
 import React, { Suspense } from "react";
 import {useSearchParams} from "next/navigation";
-import Link from "next/link";
+/* import Link from "next/link"; */
 import ReactMarkdown from "react-markdown";
-import { supabase } from "@/supabase";
+import { supabase } from "../../supabase";
 import { useEffect, useState } from "react";
 
 const SingleNoteContent = () => {

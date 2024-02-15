@@ -2,9 +2,8 @@
 /* eslint-disable react/jsx-key */
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/supabase";
-import Note from "@/app/components/student";
-import Student from "@/app/components/student";
+import { supabase } from "../../supabase";
+import Student from "../components/student";
 
 const students = () => {
 	const [error, setError] = useState(null);

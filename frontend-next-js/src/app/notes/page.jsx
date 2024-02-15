@@ -1,10 +1,7 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react/jsx-key */
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/supabase";
-import Note from "@/app/components/Note";
+import { supabase } from "../../supabase";
+import Note from "../components/note";
 
 const notes = () => {
 	const [error, setError] = useState(null);
