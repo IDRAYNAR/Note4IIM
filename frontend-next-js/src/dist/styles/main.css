@@ -477,6 +477,7 @@ body {
   font-weight: bold;
 }
 .students .personListContainer .personCard code a {
+  font-weight: bold;
   color: #202023;
   text-decoration: none;
 }
@@ -531,6 +532,7 @@ body {
   color: #202023;
 }
 .speakers .personListContainer .personCard code a {
+  font-weight: bold;
   color: #202023;
   text-decoration: none;
 }
