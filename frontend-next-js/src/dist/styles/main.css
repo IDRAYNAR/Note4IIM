@@ -445,6 +445,7 @@ body {
   color: #202023;
 }
 .students h1 {
+  color: #FFFFFF;
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: left;
   margin-bottom: 1rem;
@@ -493,6 +494,7 @@ body {
   color: #202023;
 }
 .speakers h1 {
+  color: #FFFFFF;
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: left;
   margin-bottom: 1rem;
