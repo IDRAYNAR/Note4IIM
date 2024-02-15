@@ -183,6 +183,9 @@ body {
     transform: translateX(1);
   }
 }
+.home {
+  padding: 2.5rem 0rem;
+}
 .home > h1 {
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   width: 100%;
