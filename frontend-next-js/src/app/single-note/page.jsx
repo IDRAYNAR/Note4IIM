@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const SingleNoteContent = () => {
     const [note, setNote] = useState(null);
-    const [searchParams] = useSearchParams();
+    const searchParams = useSearchParams();
     const id = searchParams.get("id");
 
     useEffect(() => {
@@ -45,7 +45,7 @@ const SingleNoteContent = () => {
 				<ReactMarkdown children={note.content} />
 			</div>
 			<hr />
-			<Link
+			{/* <Link
 				className="btn-edit"
 				href={{
 					pathname: "/edit-note",
@@ -55,7 +55,7 @@ const SingleNoteContent = () => {
 				}}
 				legacyBehavior>
 				<a className="btn-edit">Modifier la note</a>
-			</Link>
+			</Link> */}
 		</div>
     );
 };
