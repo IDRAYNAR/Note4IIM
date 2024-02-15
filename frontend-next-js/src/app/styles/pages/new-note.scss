@@ -1,5 +1,6 @@
 .new-note {
     h1 {
+		text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
         text-align: center;
         margin-bottom: 50px;
     }
@@ -9,6 +10,7 @@
         flex-direction: column;
 
         .input-title {
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
             border-radius: 5px;
             margin-top: 10px;
             margin-bottom: 30px;
@@ -20,6 +22,7 @@
         }
 
         .input-notes {
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
             border-radius: 5px;
             margin-top: 10px;
             margin-bottom: 30px;
@@ -34,6 +37,7 @@
     }
 
     .update-btn {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
         background-color: $color-orange;
         padding: 10px 20px;
         border-radius: 10px;

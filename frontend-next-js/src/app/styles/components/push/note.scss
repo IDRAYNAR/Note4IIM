@@ -3,7 +3,7 @@
     padding: 20px;
     background: $color-grey;
     color: $color-white;
-    border: solid 1px transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     text-align: left;
     transition: background .2s linear, border .2s linear;
     display: flex;

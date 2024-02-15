@@ -106,7 +106,7 @@ h2 {
 select {
   width: 100%;
   height: 2rem;
-  border: 1px solid black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: 0.5rem;
 }
 
@@ -119,13 +119,79 @@ code {
   line-height: 1.5;
 }
 
+body {
+  margin: auto;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+  background: linear-gradient(315deg, rgb(101, 0, 94) 3%, rgb(60, 132, 206) 38%, rgb(48, 238, 226) 68%, rgb(255, 25, 25) 98%);
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+.wave {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(1);
+  }
+}
 .home > h1 {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   width: 100%;
   text-align: center;
   margin-bottom: 50px;
 }
 .home > .doc {
   border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   border: solid 1px #ED7000;
   padding: 20px;
   background-color: #202023;
@@ -154,6 +220,7 @@ code {
   gap: 1rem;
 }
 .notes h1 {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: left;
   margin-bottom: 1rem;
 }
@@ -220,11 +287,21 @@ code {
   box-sizing: border-box;
   gap: 1rem;
 }
+.single-note h1 {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.single-note hr {
+  border-radius: 10px;
+  opacity: 0.25;
+  border: 1px solid #202023;
+  width: 100%;
+}
 .single-note .lessonContainer {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 .single-note .lessonContainer a {
   color: #ED7000;
@@ -241,6 +318,7 @@ code {
   width: 100%;
 }
 .single-note .btn-edit {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   background-color: #ED7000;
   padding: 10px 20px;
   border-radius: 10px;
@@ -299,6 +377,7 @@ code {
 }
 
 .new-note h1 {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: center;
   margin-bottom: 50px;
 }
@@ -307,6 +386,7 @@ code {
   flex-direction: column;
 }
 .new-note .form .input-title {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 30px;
@@ -317,6 +397,7 @@ code {
   outline: none;
 }
 .new-note .form .input-notes {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 30px;
@@ -329,6 +410,7 @@ code {
   resize: none;
 }
 .new-note .update-btn {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   background-color: #ED7000;
   padding: 10px 20px;
   border-radius: 10px;
@@ -351,6 +433,7 @@ code {
   gap: 1rem;
 }
 .students h1 {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: left;
   margin-bottom: 1rem;
 }
@@ -367,7 +450,7 @@ code {
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
-  border: 1px solid black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
 }
 .students .personListContainer .personCard code {
@@ -389,6 +472,7 @@ code {
   gap: 1rem;
 }
 .speakers h1 {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: left;
   margin-bottom: 1rem;
 }
@@ -405,7 +489,7 @@ code {
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
-  border: 1px solid black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
 }
 .speakers .personListContainer .personCard code {
@@ -521,7 +605,7 @@ code {
   padding: 20px;
   background: #202023;
   color: #FFFFFF;
-  border: solid 1px transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: left;
   transition: background 0.2s linear, border 0.2s linear;
   display: flex;
@@ -556,19 +640,19 @@ code {
 }
 
 .comp-nav-header {
-  background: #000000;
+  background: rgba(255, 255, 255, 0.214);
+  backdrop-filter: blur(5px);
   position: fixed;
   width: 100%;
   z-index: 99999999;
 }
 .comp-nav-header ul {
-  padding: 25px;
+  padding: 1rem 2rem;
   list-style: none;
   margin: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 20px;
+  justify-content: space-between;
 }
 .comp-nav-header ul .creditsButton {
   display: flex;
@@ -602,8 +686,9 @@ code {
   box-shadow: 0 0 10px 5px #ED7000;
 }
 .comp-nav-header ul li a {
+  margin: 0 0.5rem;
+  padding: 0.5rem;
   display: block;
-  padding: 10px;
   text-decoration: none;
   color: white;
   transition: color 0.2s linear;
@@ -628,7 +713,7 @@ code {
   padding: 20px;
   background: #202023;
   color: #FFFFFF;
-  border: solid 1px transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: left;
   transition: background 0.2s linear, border 0.2s linear;
   display: flex;

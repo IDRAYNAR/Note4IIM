@@ -6,11 +6,23 @@
 	box-sizing: border-box;
 	gap: 1rem;
 
+	h1 {
+		text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+	}
+
+	hr {
+		border-radius: 10px;
+		opacity: 0.25;
+		border: 1px solid $color-grey;
+		width: 100%;
+	}
+
 	.lessonContainer {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 		width: 100%;
+		text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 
 		a {
 			color: $color-orange;
@@ -31,6 +43,7 @@
 	}
 
 	.btn-edit {
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 		background-color: $color-orange;
 		padding: 10px 20px;
 		border-radius: 10px;
