@@ -61,11 +61,11 @@ const notes = () => {
                 </select>
                 <select value={selectedCursus} onChange={handleCursusChange}>
                     <option value="">Tous les cursus</option>
-                    <option value="Création & Design">Création & Design</option>
-                    <option value="Développement Web">Développement Web</option>
-                    <option value="Jeu vidéo">Jeu vidéo</option>
-                    <option value="Communication Digital">Communication Digital</option>
-                    <option value="Animation 3D">Animation 3D</option>
+					<option value="Création & Design">Création & Design</option>
+					<option value="Développement Web">Développement Web</option>
+					<option value="Jeu vidéo">Jeu vidéo</option>
+					<option value="Communication Digital">Communication Digital</option>
+					<option value="Animation 3D">Animation 3D</option>
                 </select>
             </div>
             <div className="card-container">
