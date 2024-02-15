@@ -51,13 +51,12 @@
 
             a {
                 display: block;
-                margin: 10px;
+                padding: 10px;
                 text-decoration: none;
                 color: white;
                 transition: color 0.2s linear;
 
                 &.new {
-                    padding: 10px 15px;
                     background: $color-orange;
                     color: $color-black;
                     border-radius: 10px;

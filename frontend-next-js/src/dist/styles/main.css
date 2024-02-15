@@ -478,67 +478,6 @@ code {
   cursor: pointer;
 }
 
-.speakers .personListContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.speakers .personListContainer .personCard {
-  background: #202023;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.speakers .personListContainer .personCard code {
-  font-size: 15px;
-}
-
-.speakers .personListContainer .personCard .more-infos {
-  display: flex;
-  gap: 50px;
-}
-
-.login > .form {
-  background-color: #202023;
-  border-radius: 20px;
-  max-width: 400px;
-  margin: 30px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding: 50px;
-}
-.login > .form > .input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.login > .form > .input-container > input {
-  border-radius: 10px;
-  padding: 10px 20px;
-  border: none;
-  outline: none;
-  background-color: #2f2f33 !important;
-}
-.login > .form > .submit-btn {
-  border-radius: 10px;
-  padding: 10px 20px;
-  border: none;
-  outline: none;
-  background-color: #ED7000;
-  cursor: pointer;
-  transition: opacity 0.2s linear;
-}
-.login > .form > .submit-btn:hover {
-  opacity: 0.8;
-}
-
 .comp-card {
   border-radius: 10px;
   padding: 20px;
@@ -626,13 +565,12 @@ code {
 }
 .comp-nav-header ul li a {
   display: block;
-  margin: 10px;
+  padding: 10px;
   text-decoration: none;
   color: white;
   transition: color 0.2s linear;
 }
 .comp-nav-header ul li a.new {
-  padding: 10px 15px;
   background: #ED7000;
   color: #000000;
   border-radius: 10px;
