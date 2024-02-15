@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+	color: $color-grey;
 
 	h1 {
 		text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -16,28 +17,36 @@
 		margin-top: 30px;
 
 		.personCard {
-			background: $color-grey;
+			background: rgba(255, 255, 255, 0.35);
+			border: rgba(255, 255, 255, 0.8) 1px solid;
 			border-radius: 10px;
 			display: flex;
 			flex-direction: column;
-			gap: 0.5rem;
+			gap: 1rem;
 			padding: 1rem;
 			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 			border-radius: 10px;
 
 			code {
-				font-size: 15px;
+				font-size: 12px;
+				border-radius: 50px;
+				padding: 2px 10px;
+				font-weight: lighter;
+				background-color: rgba(47, 47, 51, 0.1);
+				color: $color-grey;
+				font-weight: bold;
 			}
 
 			.studentData {
 				display: flex;
+				justify-content: space-between;
 				align-items: center;
-				gap: 0.5rem;
 			}
 
 			.more-infos {
 				display: flex;
-				gap: 50px;
+				flex-direction: column;
+				gap: 20px;
 			}
 		}
 	}

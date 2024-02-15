@@ -48,11 +48,11 @@ const notes = () => {
 	}
 
 	return (
-		<div className="notes wrapper -medium">
-			<h1>Toutes les notes</h1>
+		<div className="notes wrapper ">
+			<h1>Notes</h1>
 			<div className="selectContainer">
 				<select value={selectedPromotion} onChange={handlePromotionChange}>
-					<option value="">Toutes les promotions</option>
+					<option value="">Promotions</option>
 					<option value="A1">A1</option>
 					<option value="A2">A2</option>
 					<option value="A3">A3</option>
@@ -60,7 +60,7 @@ const notes = () => {
 					<option value="A5">A5</option>
 				</select>
 				<select value={selectedCursus} onChange={handleCursusChange}>
-					<option value="">Tous les cursus</option>
+					<option value="">Cursus</option>
 					<option value="Création & Design">Création & Design</option>
 					<option value="Développement Web">Développement Web</option>
 					<option value="Jeu vidéo">Jeu vidéo</option>
