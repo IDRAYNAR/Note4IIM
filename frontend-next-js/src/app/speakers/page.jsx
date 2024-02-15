@@ -11,8 +11,8 @@ const speakers = () => {
     useEffect(() => {
         const fetchSpeakers = async () => {
             let { data: speakersData, error } = await supabase
-                    .from('N4I_Speakers')
-                    .select('name, email, cursus');
+                .from('N4I_Speakers')
+                .select('name, email, cursus');
 
             if (error) {
                 setError(error);
@@ -38,31 +38,31 @@ const speakers = () => {
     }
 
     return (
-            <div className="App speakers wrapper -medium">
-                <div className="selectContainer">
-                    <select value={selectedcursus} onChange={handlecursusChange}>
-                        <option value="">Tous les sujets</option>
-                        <option value="Design">Design</option>
-                        <option value="Web Development">Développement Web</option>
-                        <option value="Game Development">Jeu vidéo</option>
-                        <option value="Digital Communication">Communication Digital</option>
-                        <option value="3D Animation">Animation 3D</option>
-                    </select>
-                </div>
-                <div className="personListContainer">
-                    {filteredSpeakers.map((speaker) => (
-                            <div key={speaker.email} className="personCard">
-                                <p>
-                                    <b>{speaker.name.toUpperCase()}</b>
-                                </p>
-                                <code>{speaker.email}</code>
-                                <div className="more-infos">
-                                    <p>cursus: <b>{speaker.cursus}</b></p>
-                                </div>
-                            </div>
-                    ))}
-                </div>
+        <div className="App speakers wrapper -medium">
+            <div className="selectContainer">
+                <select value={selectedcursus} onChange={handlecursusChange}>
+                    <option value="">Tous les sujets</option>
+                    <option value="Création & Design">Création & Design</option>
+                    <option value="Développement Web">Développement Web</option>
+                    <option value="Jeu vidéo">Jeu vidéo</option>
+                    <option value="Communication Digital">Communication Digital</option>
+                    <option value="Animation 3D">Animation 3D</option>
+                </select>
             </div>
+            <div className="personListContainer">
+                {filteredSpeakers.map((speaker) => (
+                    <div key={speaker.email} className="personCard">
+                        <p>
+                            <b>{speaker.name.toUpperCase()}</b>
+                        </p>
+                        <code>{speaker.email}</code>
+                        <div className="more-infos">
+                            <p>cursus: <b>{speaker.cursus}</b></p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 };
 
