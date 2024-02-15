@@ -1,70 +1,74 @@
 .comp-push-note {
-    border-radius: 10px;
-    padding: 20px;
-    background: $color-grey;
-    color: $color-white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-    text-align: left;
-    transition: background .2s linear, border .2s linear;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+	border-radius: 10px;
+	padding: 20px;
+	color: $color-grey;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+	text-align: left;
+	transition: background 0.2s linear, border 0.2s linear;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.25);
+	border: rgba(255, 255, 255, 0.8) 1px solid;
+	cursor: pointer;
 
-    > h2 {
-        transition: color .2s linear;
-        text-decoration: none;
-        margin-bottom: 10px;
-    }
+	> .end h2 {
+		transition: color 0.2s linear;
+		text-decoration: none;
+		font-size: 2em;
+		font-weight: normal;
+	}
 
-    > .auteur {
-        font-size: 0.8em;
-        font-weight: bold;
-        background: $color-orange-12;
-        color: $color-orange;
-        border-radius: 4px;
-        padding: 0.3em 0.4em;
-        width: fit-content;
-        margin-bottom: 10px;
-    }
+	> .end {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		font-size: 0.8em;
+		font-weight: bold;
+	}
 
-    > .description {
-        margin-top: 10px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: 100px;
-    }
+	> .end .auteur {
+		font-weight: lighter;
+	}
 
-    > .view {
-        background-color: $color-orange;
-        padding: 10px 20px;
-        border-radius: 10px;
-        width: fit-content;
-        color: $color-black;
+	> .description {
+		margin-top: 10px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 100px;
+	}
 
-        &:before {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            content: "";
-        }
+	> .view {
+		background-color: $color-orange;
+		padding: 10px 20px;
+		border-radius: 10px;
+		width: fit-content;
+		color: $color-black;
 
-        &:hover {
-            opacity: 0.8;
-            color: $color-black;
-            transition: background 0.2s linear;
-        }
-    }
+		&:before {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			content: "";
+		}
 
-    &:hover {
-        background: $color-light-grey;
+		&:hover {
+			opacity: 0.8;
+			color: $color-black;
+			transition: background 0.2s linear;
+		}
+	}
 
-        > h2 {
-            color: $color-orange;
-        }
-    }
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.8);
+
+		> h2 {
+			color: $color-orange;
+		}
+	}
 }

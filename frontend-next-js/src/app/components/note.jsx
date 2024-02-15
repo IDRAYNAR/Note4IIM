@@ -1,25 +1,28 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 
 const Note = ({ name, content, author, link, cursus, year }) => {
-    return (
-        <Link className="view" href={link} legacyBehavior>
-            <div className={`comp-push-note`}>
-                <h2>{name}</h2>
-                <div className="tag">
-                    <code className="auteur">{author}</code>
-                    <code className="year">A{year}</code>
-                </div>
-                <p className="cursus"><b>{cursus}</b></p>
-                {content ? (
-                    <div className="description">
-                        <ReactMarkdown children={description} />
-                    </div>
-                ) : null}
-            </div>
-        </Link>
-    );
+	return (
+		<Link className="view" href={link} legacyBehavior>
+			<div className={`comp-push-note`}>
+				<div className="tag">
+					<code className="cursus">{cursus}</code>
+					<code className="year">A{year}</code>
+				</div>
+				<div className="end">
+					<h2>{name}</h2>
+					<p className="auteur">par {author}</p>
+				</div>
+
+				{content ? (
+					<div className="description">
+						<ReactMarkdown>{description}</ReactMarkdown>
+					</div>
+				) : null}
+			</div>
+		</Link>
+	);
 };
 
 export default Note;
