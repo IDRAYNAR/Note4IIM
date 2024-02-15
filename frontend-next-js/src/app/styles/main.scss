@@ -1,0 +1,20 @@
+@import "variables";
+@import "ui";
+
+// Pages
+@import "pages/animated.scss";
+@import "pages/home";
+@import "pages/notes";
+@import "pages/single-note";
+@import "pages/edit-note";
+@import "pages/new-note";
+@import "pages/students";
+@import "pages/speakers";
+@import "pages/creditential";
+@import "pages/profil";
+
+// Components
+@import "components/card";
+@import "components/layout";
+@import "components/nav/header";
+@import "components/push/note";
