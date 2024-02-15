@@ -25,7 +25,14 @@
     }
 
     &:hover {
-        background: $color-light-grey;
+        transform: scale(1.05);
+        transition: transform 0.2s linear;
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.397);
+        
+        p {
+            text-shadow: 0 0 5px $color-orange;
+        }
 
         > h3 {
             color: $color-orange;
@@ -33,14 +40,21 @@
     }
 
     &.-portal {
-        background: $color-orange;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.35);
         transition: opacity 0.2s linear;
+        grid-column: span 3;
 
         &:hover {
-            box-shadow: 0 0 5px 5px whitesmoke;
+            transform: scale(1.05);
+            transition: transform 0.2s linear;
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.397);
+
 
             > h3 {
                 color: $color-white;
+                text-shadow: 0 0 5px $color-orange;
             }
         }
     }

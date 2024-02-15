@@ -17,7 +17,7 @@ export default function page() {
         <Card title="Cours" description="Accéder à tous les cours" link="/notes" />
         <Card title="Étudiants" description="Liste de tous les étudiants" link="/students" />
         <Card title="Professeurs" description="Liste de tous les professeurs" link="/speakers" />
-        <Card title="Portail De-Vinci" target="_blank" link="https://www.leonard-de-vinci.net/" className="-portal" />
+        <Card title="Accéder au portail De-Vinci" target="_blank" link="https://www.leonard-de-vinci.net/" className="-portal" />
       </div>
       <div>
         <div class="wave"></div>

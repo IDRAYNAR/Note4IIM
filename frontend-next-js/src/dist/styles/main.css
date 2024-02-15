@@ -622,20 +622,32 @@ body {
   margin-top: 10px;
 }
 .comp-card:hover {
-  background: #2f2f33;
+  transform: scale(1.05);
+  transition: transform 0.2s linear;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.397);
+}
+.comp-card:hover p {
+  text-shadow: 0 0 5px #ED7000;
 }
 .comp-card:hover > h3 {
   color: #ED7000;
 }
 .comp-card.-portal {
-  background: #ED7000;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.35);
   transition: opacity 0.2s linear;
+  grid-column: span 3;
 }
 .comp-card.-portal:hover {
-  box-shadow: 0 0 5px 5px whitesmoke;
+  transform: scale(1.05);
+  transition: transform 0.2s linear;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.397);
 }
 .comp-card.-portal:hover > h3 {
   color: #FFFFFF;
+  text-shadow: 0 0 5px #ED7000;
 }
 
 .page-layout {
